@@ -3,4 +3,8 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
+    ul {
+        list-style-type: disc; /* Ensures bullet points appear */
+        padding-left: 20px; /* Indents the list for better readability */
+    }
   }
