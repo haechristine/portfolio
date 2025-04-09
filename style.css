@@ -14,19 +14,15 @@ body {
         list-style-type: disc; /* Ensures bullet points appear */
         padding-left: 20px; /* Indents the list for better readability */
     }
-    nav a.current{
-      display: flex; /* Enable Flexbox on the navigation */
-    }
     
     nav a.current {
+      display: flex; /* Enable Flexbox on the navigation */
       flex: 1; /* Make each <a> take up equal space */
       text-align: center; /* Center the text inside each link */
       padding: 10px; /* Optional, to add some spacing */
       text-decoration: none; /* Optional, remove the underline */
-    }
-    
-    nav a.current {
       background-color: #f0f0f0; /* Optional, style for the current page */
       font-weight: bold; /* Optional, style for the current page */
-    }    
+    }
+       
   }
