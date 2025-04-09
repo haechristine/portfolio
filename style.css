@@ -14,11 +14,11 @@ body {
         list-style-type: disc; /* Ensures bullet points appear */
         padding-left: 20px; /* Indents the list for better readability */
     }
-    nav {
+    nav a.current{
       display: flex; /* Enable Flexbox on the navigation */
     }
     
-    nav a {
+    nav a.current {
       flex: 1; /* Make each <a> take up equal space */
       text-align: center; /* Center the text inside each link */
       padding: 10px; /* Optional, to add some spacing */
