@@ -18,6 +18,9 @@ body {
     nav {
       display: flex; /* Enable Flexbox on the navigation */
       margin-bottom: 8px;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: oklch(lightness chroma hue);
     }
     
     nav a {
@@ -25,11 +28,15 @@ body {
       text-align: center; /* Center the text inside each link */
       padding: 0.5em; /* Optional, to add some spacing */
       text-decoration: none; /* Optional, remove the underline */
+      color: inherit;
     }
     
     nav a.current {
       background-color: #f0f0f0; /* Optional, style for the current page */
       font-weight: bold; /* Optional, style for the current page */
+      border-bottom: 0.4em;
+      border-bottom-color: oklch(lightness chroma hue);
+      padding-bottom: 0.25em;
     }
     
        
