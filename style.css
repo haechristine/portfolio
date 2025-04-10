@@ -17,12 +17,13 @@ body {
     
     nav {
       display: flex; /* Enable Flexbox on the navigation */
+      margin-bottom: 8px;
     }
     
     nav a {
       flex: 1; /* Make each <a> take up equal space */
       text-align: center; /* Center the text inside each link */
-      padding: 10px; /* Optional, to add some spacing */
+      padding: 0.5em; /* Optional, to add some spacing */
       text-decoration: none; /* Optional, remove the underline */
     }
     
