@@ -31,7 +31,6 @@ body {
       border-bottom-width: 1px;
       border-bottom-style: solid;
       border-bottom-color: oklch(--color-accent);
-      background-color: oklch(95% 5% var(--accent-h)); /* Soft dusty rose background for nav */
     }
     
     nav a {
