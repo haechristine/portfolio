@@ -113,3 +113,10 @@ form button {
 form button:hover {
   background-color: oklch(60% 20% var(--accent-h));
 }
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1.5em;
+  margin-top: 2em;
+}
