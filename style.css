@@ -39,7 +39,7 @@ body {
       text-align: center; /* Center the text inside each link */
       padding: 0.5em; /* Optional, to add some spacing */
       text-decoration: none; /* Optional, remove the underline */
-      color: inherit;
+      color: #333;
     }
     
     nav a.current {
