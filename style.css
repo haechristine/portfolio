@@ -45,9 +45,9 @@ body {
     
     nav a.current {
       font-weight: bold; /* Optional, style for the current page */
-      border-bottom: 0.4em solid var(--color-accent);
       border-bottom-color: oklch(lightness chroma hue);
       border-bottom-width: 1px;
+      border-bottom: 0.4em solid var(--color-accent);
       padding-bottom: 0.25em;
       background-color: oklch(95% 5% var(--accent-h));
     }
