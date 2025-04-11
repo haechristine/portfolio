@@ -55,5 +55,10 @@ body {
       padding-bottom: 0.25em;
       background-color: oklch(95% 5% var(--accent-h));
     }
-       
   }
+
+input,
+textarea,
+button {
+  font: inherit;
+}
