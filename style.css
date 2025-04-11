@@ -65,27 +65,36 @@ button {
 
 /* Contact form styling */
 form {
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
   margin-top: 1rem;
 }
 
 form label {
-  display: block;
-  margin-block: 0.5rem;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 form input,
 form textarea {
-  display: block;
   width: 100%;
-  box-sizing: border-box;
   font: inherit;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form textarea{
+  min-height: 100px;
 }
 
 form button {
-  margin-top: 1rem;
+  grid-column: 2;
+  justify-self: start;
   padding: 0.5rem 1rem;
   font: inherit;
   background-color: var(--color-accent);
@@ -96,5 +105,5 @@ form button {
 }
 
 form button:hover {
-  background-color: oklch(60% 20% var(--accent-h)); /* slightly darker pink on hover */
+  background-color: oklch(60% 20% var(--accent-h)); 
 }
