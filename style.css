@@ -34,6 +34,7 @@ body {
     }
     
     nav a {
+      background-color: #fafafa;
       flex: 1; /* Make each <a> take up equal space */
       text-align: center; /* Center the text inside each link */
       padding: 0.5em; /* Optional, to add some spacing */
@@ -43,7 +44,7 @@ body {
     
     nav a.current {
       font-weight: bold; /* Optional, style for the current page */
-      border-bottom: 0.4em;
+      border-bottom: 0.4em solid var(--color-accent);
       border-bottom-color: oklch(lightness chroma hue);
       border-bottom-width: 1px;
       padding-bottom: 0.25em;
