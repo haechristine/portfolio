@@ -44,12 +44,10 @@ body {
     }
     
     nav a.current {
-      border-bottom: 0.4em solid var(--color-accent);
+      font-weight: bold;
       padding-bottom: 0.25em;
-      background-color: oklch(95% 5% var(--accent-h));
-      font-weight: bold; /* Optional, style for the current page */
-      border-bottom-color: oklch(lightness chroma hue);
-      border-bottom-width: 1px;
+      background-color: #fafafa;
+      border-bottom: 0.4em solid var(--color-accent);
     }
 
     nav a:hover {
