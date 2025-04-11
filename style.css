@@ -66,6 +66,7 @@ button {
 /* Contact form styling */
 form {
   display: grid;
+  grid-template-columns: 150px 1fr;
   gap: 1rem;
   max-width: 600px;
   margin-top: 1rem;
@@ -73,7 +74,8 @@ form {
 
 form label {
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: subgrid;
+  grid-column: 1/-1;
   align-items: center;
   gap: 0.5rem;
 }
@@ -93,7 +95,7 @@ form textarea{
 }
 
 form button {
-  grid-column: 2;
+  grid-column: 1/-1;
   justify-self: start;
   padding: 0.5rem 1rem;
   font: inherit;
