@@ -23,6 +23,7 @@ body {
     margin-inline: auto;
     padding: 10px;
     font: 100%/1.5 system-ui;
+    background-color: #fafafa; /* ✅ FIXED! */
     ul {
         list-style-type: disc; /* Ensures bullet points appear */
         padding-left: 20px; /* Indents the list for better readability */
