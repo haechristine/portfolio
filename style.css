@@ -64,7 +64,7 @@ button {
 }
 
 /* Contact form styling */
-form {
+/* form {
   display: grid;
   grid-template-columns: 150px 1fr;
   gap: 1rem;
@@ -108,4 +108,25 @@ form button {
 
 form button:hover {
   background-color: oklch(60% 20% var(--accent-h)); 
+} */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 500px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  padding: 0.5em;
+  width: 100%;
+  box-sizing: border-box;
 }
