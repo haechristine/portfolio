@@ -31,14 +31,15 @@ body {
       border-bottom-width: 1px;
       border-bottom-style: solid;
       border-bottom-color: oklch(--color-accent);
+      background-color: #fafafa;
     }
     
     nav a {
-      color: #fafafa;
       flex: 1; /* Make each <a> take up equal space */
       text-align: center; /* Center the text inside each link */
       padding: 0.5em; /* Optional, to add some spacing */
       text-decoration: none; /* Optional, remove the underline */
+      color: inherit;
     }
     
     nav a.current {
