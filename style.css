@@ -138,3 +138,36 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
+
+/* In style.css */
+
+.resume h1, .resume h2 {
+  color: #2c3e50;
+}
+
+.resume h2 {
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 5px;
+}
+
+.resume ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.resume li {
+  margin-bottom: 10px;
+}
+
+.resume .section {
+  margin-bottom: 20px;
+}
+
+.resume .role {
+  font-weight: bold;
+}
+
+.resume .date {
+  float: right;
+  color: gray;
+}
