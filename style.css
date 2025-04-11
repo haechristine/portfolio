@@ -47,7 +47,7 @@ body {
       font-weight: bold;
       padding-bottom: 0.25em;
       background-color: #fafafa;
-      border-bottom: 0.4em solid var(--color-accent);
+      border-bottom: oklch(80% 3% 200);
     }
 
     nav a:hover {
