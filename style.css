@@ -70,7 +70,9 @@ form {
 
 form label {
   display: grid;
+  grid-template-columns: subgrid;
   margin-block: 0.5rem;
+  gap: 1em;
 }
 
 form input,
@@ -93,6 +95,7 @@ form button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  grid-column: 1/-1;
 }
 
 form button:hover {
