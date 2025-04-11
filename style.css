@@ -1,5 +1,13 @@
-:root {
+/* :root {
   --color-accent: oklch(66% 12% 16);
+  accent-color: var(--color-accent);
+} */
+:root {
+  --accent-l: 70%;
+  --accent-c: 25%;
+  --accent-h: 345deg; /* dusty rose hue */
+  
+  --color-accent: oklch(var(--accent-l) var(--accent-c) var(--accent-h));
   accent-color: var(--color-accent);
 }
 
@@ -40,18 +48,18 @@ body {
     
     nav a.current {
       /* background-color: #f0f0f0; */
-      background-color: oklch(from var(--color-accent) 95% 5% h);
       font-weight: bold; /* Optional, style for the current page */
       border-bottom: 0.4em;
       border-bottom-color: oklch(lightness chroma hue);
       border-bottom-width: 1px;
       padding-bottom: 0.25em;
+      background-color: oklch(95% 5% var(--accent-h));
     }
 
     nav a:hover {
       border-bottom: 0.4em solid var(--color-accent);
       padding-bottom: 0.25em;
-      background-color: oklch(from var(--color-accent) 95% 5% h);
+      background-color: oklch(95% 5% var(--accent-h));
     }
        
   }
