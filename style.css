@@ -34,12 +34,11 @@ body {
     }
     
     nav a {
-      background-color: #fafafa;
+      color: #fafafa;
       flex: 1; /* Make each <a> take up equal space */
       text-align: center; /* Center the text inside each link */
       padding: 0.5em; /* Optional, to add some spacing */
       text-decoration: none; /* Optional, remove the underline */
-      color: inherit;
     }
     
     nav a.current {
