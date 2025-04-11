@@ -172,23 +172,3 @@ h1, h2, h3, h4, h5, h6 {
   color: gray;
 }
 
-.intro-section {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 2rem;
-  align-items: center;
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
-.intro-section img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.intro-section p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
