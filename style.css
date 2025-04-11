@@ -64,39 +64,28 @@ button {
 }
 
 /* Contact form styling */
-/* form {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 1rem;
-  max-width: 600px;
+form {
   margin-top: 1rem;
 }
 
 form label {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column: 1/-1;
-  align-items: center;
-  gap: 0.5rem;
+  display: block;
+  margin-block: 0.5rem;
 }
 
 form input,
 form textarea {
+  display: block;
   width: 100%;
+  box-sizing: border-box;
   font: inherit;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
-}
-
-form textarea{
-  min-height: 100px;
 }
 
 form button {
-  grid-column: 1/-1;
-  justify-self: start;
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
   font: inherit;
   background-color: var(--color-accent);
@@ -107,26 +96,5 @@ form button {
 }
 
 form button:hover {
-  background-color: oklch(60% 20% var(--accent-h)); 
-} */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  max-width: 500px;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 500;
-}
-
-input,
-textarea,
-button {
-  font: inherit;
-  padding: 0.5em;
-  width: 100%;
-  box-sizing: border-box;
+  background-color: oklch(60% 20% var(--accent-h)); /* slightly darker pink on hover */
 }
