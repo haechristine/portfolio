@@ -98,7 +98,7 @@ body {
   }
 
 button:hover {
-  background-color: oklch(60% 20% var(--accent-h));
+  background-color: var(--color-accent);
 } 
 
 .projects {
