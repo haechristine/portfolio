@@ -137,9 +137,9 @@ form textarea {
   cursor: pointer;
 } */
 
-/* form button:hover {
+form button:hover {
   background-color: oklch(60% 20% var(--accent-h));
-}  */
+} 
 
 .projects {
   display: grid;
