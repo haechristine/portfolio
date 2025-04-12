@@ -96,48 +96,8 @@ body {
   label {
     font: inherit;
   }
-  
 
-/* Each label spans the whole row (2 columns), and becomes a grid using subgrid
-form label {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column: 1 / -1;
-  align-items: center;
-  gap: 0.5em;
-}
-
-/* Input + textarea inherit font and style */
-/* form input,
-form textarea {
-  font: inherit;
-  width: 100%;
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  grid-column: 1/-1;
-}
-
-/* Optional: consistent size for textarea */
-/* form textarea {
-  min-height: 100px;
-} */
-
-/* Submit button should also span both columns */
-/* form button {
-  grid-column: 1 / -1;
-  justify-self: start;
-  padding: 0.5em 1em;
-  font: inherit;
-  background-color: var(--color-accent);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-} */
-
-form button:hover {
+button:hover {
   background-color: oklch(60% 20% var(--accent-h));
 } 
 
