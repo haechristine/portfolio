@@ -70,8 +70,8 @@ body {
   
   /* Input spans both columns */
   input,
-  textarea,
-  select {
+  textarea {
+    grid-column: 2;
     width: 100%;
     box-sizing: border-box;
     padding: 0.5em;
@@ -93,8 +93,7 @@ body {
   input,
   textarea,
   button,
-  label,
-  select {
+  label {
     font: inherit;
   }
   
