@@ -65,13 +65,44 @@ button {
 
 form {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 1em;
-  max-width: 600px;
-  margin-top: 1rem;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
 }
 
-/* Each label spans the whole row (2 columns), and becomes a grid using subgrid */
+label,
+button,
+input, 
+textarea,
+select{
+  font: inherit;
+}
+
+button,
+input, 
+textarea,
+select{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select{
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius:4px;
+}
+
+button {
+  margin-block: 1em;
+  padding: 0.6em 1em;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  grid-column: 2;
+}
+
+/* Each label spans the whole row (2 columns), and becomes a grid using subgrid
 form label {
   display: grid;
   grid-template-columns: subgrid;
@@ -81,7 +112,7 @@ form label {
 }
 
 /* Input + textarea inherit font and style */
-form input,
+/* form input,
 form textarea {
   font: inherit;
   width: 100%;
@@ -93,12 +124,12 @@ form textarea {
 }
 
 /* Optional: consistent size for textarea */
-form textarea {
+/* form textarea {
   min-height: 100px;
-}
+} */
 
 /* Submit button should also span both columns */
-form button {
+/* form button {
   grid-column: 1 / -1;
   justify-self: start;
   padding: 0.5em 1em;
@@ -108,11 +139,11 @@ form button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
+} */
 
-form button:hover {
+/* form button:hover {
   background-color: oklch(60% 20% var(--accent-h));
-}
+}  */
 
 .projects {
   display: grid;
