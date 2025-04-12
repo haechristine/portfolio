@@ -57,50 +57,47 @@ body {
     }
   }
 
-input,
-textarea,
-button {
-  font: inherit;
-}
-
-form {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-}
-
-label,
-button,
-input, 
-textarea,
-select{
-  font: inherit;
-}
-
-button,
-input, 
-textarea,
-select{
-  width: 100%;
-  box-sizing: border-box;
-}
-
-input,
-textarea,
-select{
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  border-radius:4px;
-}
-
-button {
-  margin-block: 1em;
-  padding: 0.6em 1em;
-  border: 1px solid #333;
-  border-radius: 4px;
-  cursor: pointer;
-  grid-column: 2;
-}
+  form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+  }
+  
+  /* Label on the left (column 1) */
+  label {
+    align-self: center;
+  }
+  
+  /* Input spans both columns */
+  input,
+  textarea,
+  select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Button spans both columns too */
+  button {
+    grid-column: 1 / -1;
+    margin-block: 1em;
+    padding: 0.6em 1em;
+    border: 1px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Font inheritance */
+  input,
+  textarea,
+  button,
+  label,
+  select {
+    font: inherit;
+  }
+  
 
 /* Each label spans the whole row (2 columns), and becomes a grid using subgrid
 form label {
