@@ -179,7 +179,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .resume .section a {
-  color: var(--accent-color); /* or your hex: #123abc */
+  color: solid var(--accent-color); 
   text-decoration: none;
 }
 
