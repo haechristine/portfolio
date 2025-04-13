@@ -137,6 +137,15 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 5px;
 }
 
+.resume .section a {
+  color: var(--accent-color); 
+  text-decoration: none;
+}
+
+.resume .section a:hover {
+  text-decoration: underline;
+}
+
 .resume ul {
   list-style-type: none;
   padding: 0;
@@ -176,13 +185,4 @@ h1, h2, h3, h4, h5, h6 {
 .bio p {
   font-size: 1.1rem;
   line-height: 1.6;
-}
-
-.resume .section a {
-  color: var(--accent-color) !important; 
-  text-decoration: none;
-}
-
-.resume .section a:hover {
-  text-decoration: underline;
 }
