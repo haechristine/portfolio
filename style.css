@@ -177,3 +177,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.1rem;
   line-height: 1.6;
 }
+
+.section a {
+  color: var(--accent-color); /* or your hex: #123abc */
+  text-decoration: none;
+}
+
+.section a:hover {
+  text-decoration: underline;
+}
