@@ -138,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .resume .section a {
-  color: var(--accent-color); 
+  color: var(--color-accent); 
   text-decoration: none;
 }
 
