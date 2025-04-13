@@ -179,7 +179,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .resume .section a {
-  color: solid var(--accent-color); 
+  color: var(--accent-color); 
   text-decoration: none;
 }
 
