@@ -178,11 +178,11 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
-.section a {
+.resume .section a {
   color: var(--accent-color); /* or your hex: #123abc */
   text-decoration: none;
 }
 
-.section a:hover {
+.resume .section a:hover {
   text-decoration: underline;
 }
