@@ -97,4 +97,27 @@ if (automaticOption) {
   automaticOption.textContent = `Automatic (${prefersDark ? 'Dark' : 'Light'})`;
 }
 
+const form = document.getElementById('contact-form');
+
+form?.addEventListener('submit', function(event) {
+  event.preventDefault(); // prevent the default form behavior
+
+  const data = new FormData(form);
+  const params = [];
+
+  for (let [name, value] of data) {
+    // Encode both key and value
+    const encoded = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
+    params.push(encoded);
+  }
+
+  // Build the mailto URL
+  const queryString = params.join('&');
+  const url = `${form.action}?${queryString}`;
+
+  // Navigate to the mailto link
+  location.href = url;
+});
+
+
 
