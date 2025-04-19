@@ -21,7 +21,7 @@ let pages = [
 ];
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-  ? "/"                  
+  ? "/portfolio/"                  
   : "/portfolio/";  // ← replace with your actual repo name
 
 // Create and prepend <nav> to the body
