@@ -229,47 +229,12 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #111;
-    color: #eee;
-  }
-
-  nav {
-    background-color: #222;
-    color: #eee;
-    --border-color: oklch(50% 10% 200 / 40%);
-  }
-
-  nav a.current {
-    background-color: #222;
-  }
-
-  nav a:hover {
-    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-  }
-
-  .resume h1, .resume h2 {
-    color: #ddd;
-  }
-
-  .resume .date {
-    color: #aaa;
-  }
-
-  .bio p {
-    color: #ddd;
-  }
-
-  .projects article h2 {
-    color: #fff;
-  }
-} */
-
 .color-scheme {
-  display: block;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
 }
 .color-scheme select {
   margin-left: 0.5rem;
