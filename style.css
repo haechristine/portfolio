@@ -191,7 +191,45 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Default light mode (already in your base styles) */
+
+[data-theme="dark"] body {
+  background-color: #111;
+  color: #eee;
+}
+
+[data-theme="dark"] nav {
+  background-color: #222;
+  color: #eee;
+  --border-color: oklch(50% 10% 200 / 40%);
+}
+
+[data-theme="dark"] nav a.current {
+  background-color: #222;
+}
+
+[data-theme="dark"] nav a:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+[data-theme="dark"] .resume h1,
+[data-theme="dark"] .resume h2 {
+  color: #ddd;
+}
+
+[data-theme="dark"] .resume .date {
+  color: #aaa;
+}
+
+[data-theme="dark"] .bio p {
+  color: #ddd;
+}
+
+[data-theme="dark"] .projects article h2 {
+  color: #fff;
+}
+
+/* @media (prefers-color-scheme: dark) {
   body {
     background-color: #111;
     color: #eee;
@@ -226,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
   .projects article h2 {
     color: #fff;
   }
-}
+} */
 
 .color-scheme {
   display: block;
