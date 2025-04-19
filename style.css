@@ -28,6 +28,7 @@ body {
   }
 
 nav {
+  margin-top: 3rem;
   --border-color: oklch(50% 10% 200 / 40%);
   display: flex; /* Enable Flexbox on the navigation */
   margin-bottom: 8px;
