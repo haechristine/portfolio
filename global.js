@@ -68,8 +68,11 @@ document.body.insertAdjacentHTML(
   function applyColorScheme(scheme) {
     if (scheme === 'automatic') {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      root.style.colorScheme = prefersDark ? 'dark' : 'light';
-      root.removeAttribute('data-theme'); // fallback to media query
+      const actualScheme = prefersDark ? 'dark' : 'light';
+      root.style.colorScheme = actualScheme;
+      root.setAttribute('data-theme', actualScheme);
+    //   root.style.colorScheme = prefersDark ? 'dark' : 'light';
+    //   root.removeAttribute('data-theme'); 
     } else {
       root.style.colorScheme = scheme;
       root.setAttribute('data-theme', scheme); // trigger your CSS
