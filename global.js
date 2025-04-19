@@ -10,10 +10,6 @@ console.log('IT’S ALIVE!');
 // (a) => a.host === location.host && a.pathname === location.pathname);
 // currentLink?.classList.add('current');
 
-// Set base path depending on environment
-const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-  ? "/" // Local
-  : "/portfolio/"; // GitHub Pages repo name (adjust if your repo name is different)
 
 // Define your site's pages (internal = relative, external = full URL)
 let pages = [
