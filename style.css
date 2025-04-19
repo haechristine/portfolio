@@ -27,11 +27,13 @@ body {
     }
     
     nav {
+      --border-color: oklh(50% 10% 200/40%);
       display: flex; /* Enable Flexbox on the navigation */
       margin-bottom: 8px;
       border-bottom-width: 1px;
       border-bottom-style: solid;
-      border-bottom-color: oklch(--color-accent);
+      /* border-bottom-color: oklch(--color-accent); */
+      border-bottom-color: oklch(--border-color);
       background-color: #fafafa;
       color: #333
     }
@@ -54,7 +56,8 @@ body {
     nav a:hover {
       border-bottom: 0.4em solid var(--color-accent);
       padding-bottom: 0.25em;
-      background-color: oklch(95% 5% var(--accent-h));
+      background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+      /* background-color: oklch(95% 5% var(--accent-h)); */
     }
   }
 
