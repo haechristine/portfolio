@@ -45,3 +45,54 @@ for (let p of pages) {
   nav.append(a);
 }
 
+// Insert the color scheme toggle at the top of the body
+document.body.insertAdjacentHTML(
+    'afterbegin',
+    `
+    <label class="color-scheme">
+      Theme:
+      <select id="color-scheme-toggle">
+        <option value="automatic">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
+    `
+  );
+  
+  // Get the toggle element
+  const colorSchemeToggle = document.getElementById('color-scheme-toggle');
+  const root = document.documentElement;
+  
+  // Helper function to update color-scheme on the root
+  function applyColorScheme(scheme) {
+    if (scheme === 'automatic') {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.style.colorScheme = prefersDark ? 'dark' : 'light';
+    } else {
+      root.style.colorScheme = scheme;
+    }
+  }
+  
+  // Load saved preference or fall back to automatic
+  const savedScheme = localStorage.getItem('color-scheme') || 'automatic';
+  colorSchemeToggle.value = savedScheme;
+  applyColorScheme(savedScheme);
+  
+  // Listen for changes
+  colorSchemeToggle.addEventListener('change', (event) => {
+    const selected = event.target.value;
+    localStorage.setItem('color-scheme', selected);
+    applyColorScheme(selected);
+  });
+
+// Detect if OS prefers dark mode
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Optional: make the "Automatic" option label reflect the current system setting
+const automaticOption = document.querySelector('#color-scheme-toggle option[value="automatic"]');
+if (automaticOption) {
+  automaticOption.textContent = `Automatic (${prefersDark ? 'Dark' : 'Light'})`;
+}
+
+

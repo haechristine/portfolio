@@ -5,7 +5,7 @@
 
   --color-accent: oklch(var(--accent-l) var(--accent-c) var(--accent-h));
   accent-color: var(--color-accent);
-  color-scheme: dark;
+  color-scheme: light dark;
 }
 
 body {
@@ -25,81 +25,103 @@ body {
         list-style-type: disc; /* Ensures bullet points appear */
         padding-left: 20px; /* Indents the list for better readability */
     }
-    
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #111;
+      color: #eee;
+    }
+  
     nav {
-      --border-color: oklh(50% 10% 200/40%);
-      display: flex; /* Enable Flexbox on the navigation */
-      margin-bottom: 8px;
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
-      /* border-bottom-color: oklch(--color-accent); */
-      border-bottom-color: oklch(--border-color);
-      background-color: #fafafa;
-      color: #333
+      background-color: #222;
+      color: #eee;
+      --border-color: oklch(50% 10% 200 / 40%);
     }
-    
-    nav a {
-      color: inherit;
-      flex: 1; /* Make each <a> take up equal space */
-      text-align: center; /* Center the text inside each link */
-      padding: 0.5em; /* Optional, to add some spacing */
-      text-decoration: none; /* Optional, remove the underline */
-    }
-    
+  
     nav a.current {
-      font-weight: bold;
-      padding-bottom: 0.25em;
-      background-color: #fafafa;
-      border-bottom: 0.4em solid var(--color-accent);
+      background-color: #222;
     }
-
+  
     nav a:hover {
-      border-bottom: 0.4em solid var(--color-accent);
-      padding-bottom: 0.25em;
-      background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-      /* background-color: oklch(95% 5% var(--accent-h)); */
+      background-color: oklch(25% 5% var(--accent-h));
     }
   }
+  
+  nav {
+    --border-color: oklh(50% 10% 200/40%);
+    display: flex; /* Enable Flexbox on the navigation */
+    margin-bottom: 8px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    /* border-bottom-color: oklch(--color-accent); */
+    border-bottom-color: oklch(--border-color);
+    background-color: #fafafa;
+    color: #333
+  }
+  
+  nav a {
+    color: inherit;
+    flex: 1; /* Make each <a> take up equal space */
+    text-align: center; /* Center the text inside each link */
+    padding: 0.5em; /* Optional, to add some spacing */
+    text-decoration: none; /* Optional, remove the underline */
+  }
+  
+  nav a.current {
+    font-weight: bold;
+    padding-bottom: 0.25em;
+    background-color: #fafafa;
+    border-bottom: 0.4em solid var(--color-accent);
+  }
 
-  form {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1rem;
+  nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
+    padding-bottom: 0.25em;
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+    /* background-color: oklch(95% 5% var(--accent-h)); */
   }
   
-  /* Label on the left (column 1) */
-  label {
-    align-self: center;
-  }
-  
-  /* Input spans both columns */
-  input,
-  textarea {
-    grid-column: 2;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* Button spans both columns too */
-  button {
-    grid-column: 1 / -1;
-    margin-block: 1em;
-    padding: 0.6em 1em;
-    border: 1px solid #333;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  /* Font inheritance */
-  input,
-  textarea,
-  button,
-  label {
-    font: inherit;
-  }
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+/* Label on the left (column 1) */
+label {
+  align-self: center;
+}
+
+/* Input spans both columns */
+input,
+textarea {
+  grid-column: 2;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button spans both columns too */
+button {
+  grid-column: 1 / -1;
+  margin-block: 1em;
+  padding: 0.6em 1em;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Font inheritance */
+input,
+textarea,
+button,
+label {
+  font: inherit;
+}
 
 button:hover {
   background-color: var(--color-accent);
@@ -189,4 +211,14 @@ h1, h2, h3, h4, h5, h6 {
 .bio p {
   font-size: 1.1rem;
   line-height: 1.6;
+}
+
+.color-scheme {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.color-scheme select {
+  margin-left: 0.5rem;
+  font: inherit;
 }
