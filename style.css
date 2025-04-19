@@ -206,12 +206,12 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme="dark"] nav a.current {
   background-color: #222;
-  border-bottom-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  border-bottom: 0.4em solid var(--color-accent);
 }
 
 [data-theme="dark"] nav a:hover {
   background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-  border-bottom-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  border-bottom: 0.4em solid var(--color-accent);
 }
 
 [data-theme="dark"] .resume h1,
