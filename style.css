@@ -5,7 +5,7 @@
 
   --color-accent: oklch(var(--accent-l) var(--accent-c) var(--accent-h));
   accent-color: var(--color-accent);
-  color-scheme: light dark;
+  color-scheme: dark;
 }
 
 body {
