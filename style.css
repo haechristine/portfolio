@@ -27,44 +27,6 @@ body {
     }
   }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #111;
-    color: #eee;
-  }
-
-  nav {
-    background-color: #222;
-    color: #eee;
-    --border-color: oklch(50% 10% 200 / 40%);
-  }
-
-  nav a.current {
-    background-color: #222;
-  }
-
-  nav a:hover {
-    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-  }
-
-  .resume h1, .resume h2 {
-    color: #ddd;
-  }
-
-  .resume .date {
-    color: #aaa;
-  }
-
-  .bio p {
-    color: #ddd;
-  }
-
-  .projects article h2 {
-    color: #fff;
-  }
-}
-
-
 nav {
   --border-color: oklch(50% 10% 200 / 40%);
   display: flex; /* Enable Flexbox on the navigation */
@@ -227,6 +189,43 @@ h1, h2, h3, h4, h5, h6 {
 .bio p {
   font-size: 1.1rem;
   line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: #eee;
+  }
+
+  nav {
+    background-color: #222;
+    color: #eee;
+    --border-color: oklch(50% 10% 200 / 40%);
+  }
+
+  nav a.current {
+    background-color: #222;
+  }
+
+  nav a:hover {
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  }
+
+  .resume h1, .resume h2 {
+    color: #ddd;
+  }
+
+  .resume .date {
+    color: #aaa;
+  }
+
+  .bio p {
+    color: #ddd;
+  }
+
+  .projects article h2 {
+    color: #fff;
+  }
 }
 
 .color-scheme {
