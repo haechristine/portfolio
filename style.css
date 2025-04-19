@@ -199,9 +199,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="dark"] nav {
-  background-color: #222;
+  background-color: #111;
   color: #eee;
   --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
 }
 
 [data-theme="dark"] nav a.current {
