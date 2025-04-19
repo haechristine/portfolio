@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  bottom: 1rem;
   font-size: 80%;
   font-family: inherit;
 }
