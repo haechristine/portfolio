@@ -27,61 +27,78 @@ body {
     }
   }
 
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #111;
-      color: #eee;
-    }
-  
-    nav {
-      background-color: #222;
-      color: #eee;
-      --border-color: oklch(50% 10% 200 / 40%);
-    }
-  
-    nav a.current {
-      background-color: #222;
-    }
-  
-    nav a:hover {
-      background-color: oklch(25% 5% var(--accent-h));
-    }
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: #eee;
   }
-  
+
   nav {
-    --border-color: oklh(50% 10% 200/40%);
-    display: flex; /* Enable Flexbox on the navigation */
-    margin-bottom: 8px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    /* border-bottom-color: oklch(--color-accent); */
-    border-bottom-color: oklch(--border-color);
-    background-color: #fafafa;
-    color: #333
+    background-color: #222;
+    color: #eee;
+    --border-color: oklch(50% 10% 200 / 40%);
   }
-  
-  nav a {
-    color: inherit;
-    flex: 1; /* Make each <a> take up equal space */
-    text-align: center; /* Center the text inside each link */
-    padding: 0.5em; /* Optional, to add some spacing */
-    text-decoration: none; /* Optional, remove the underline */
-  }
-  
+
   nav a.current {
-    font-weight: bold;
-    padding-bottom: 0.25em;
-    background-color: #fafafa;
-    border-bottom: 0.4em solid var(--color-accent);
+    background-color: #222;
   }
 
   nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent);
-    padding-bottom: 0.25em;
-    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-    /* background-color: oklch(95% 5% var(--accent-h)); */
+    background-color: oklch(25% 5% var(--accent-h));
   }
-  
+
+  .resume h1, .resume h2 {
+    color: #ddd;
+  }
+
+  .resume .date {
+    color: #aaa;
+  }
+
+  .bio p {
+    color: #ddd;
+  }
+
+  .projects article h2 {
+    color: #fff;
+  }
+}
+
+
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  display: flex; /* Enable Flexbox on the navigation */
+  margin-bottom: 8px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  /* border-bottom-color: oklch(--color-accent); */
+  border-bottom-color: oklch(--border-color);
+  background-color: #fafafa;
+  color: #333
+}
+
+nav a {
+  color: inherit;
+  flex: 1; /* Make each <a> take up equal space */
+  text-align: center; /* Center the text inside each link */
+  padding: 0.5em; /* Optional, to add some spacing */
+  text-decoration: none; /* Optional, remove the underline */
+}
+
+nav a.current {
+  font-weight: bold;
+  padding-bottom: 0.25em;
+  background-color: #fafafa;
+  border-bottom: 0.4em solid var(--color-accent);
+}
+
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  padding-bottom: 0.25em;
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  /* background-color: oklch(95% 5% var(--accent-h)); */
+}
+
 
 form {
   display: grid;
