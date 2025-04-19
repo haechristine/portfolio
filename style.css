@@ -29,12 +29,12 @@ body {
 
 nav {
   margin-top: 3rem;
-  --border-color: oklch(50% 10% 200 / 40%);
+  /* --border-color: oklch(50% 10% 200 / 40%); */
   display: flex; /* Enable Flexbox on the navigation */
   margin-bottom: 8px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: oklch(--border-color);
+  /* border-bottom-color: oklch(--border-color); */
   background-color: #fafafa;
   color: #333
 }
@@ -201,8 +201,8 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="dark"] nav {
   background-color: #111;
   color: #eee;
-  --border-color: oklch(50% 10% 200 / 40%);
-  border-bottom: var(--border-color);
+  --border-color: oklch(50% 0.1 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
 }
 
 [data-theme="dark"] nav a.current {
