@@ -8,7 +8,7 @@ if (titleElement) {
     titleElement.textContent = `${projects.length} Projects`; 
 }
 
-renderProjects(latestProjects, projectsContainer, 'h2');
+renderProjects(projects, projectsContainer, 'h2');
 
 // async function loadProjects() {
 //     const projects = await fetchJSON('../lib/projects.json');
