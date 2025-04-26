@@ -166,7 +166,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     // Define the content dynamically
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image || 'default-image.jpg'}" alt="${project.title}">
+      <img src="${project.image?.src || 'default-image.jpg'}" alt="${project.image?.alt || project.title}">
       <p>${project.description}</p>
     `;
 
@@ -174,3 +174,10 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     containerElement.appendChild(article);
   });
 }
+
+export async function fetchGithubData(username) {
+  const res = await fetch(`https://api.github.com/users/${username}`);
+  if (!res.ok) throw new Error('Failed to fetch GitHub data');
+  return res.json();
+}
+
