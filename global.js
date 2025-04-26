@@ -138,3 +138,5 @@ export async function fetchJSON(url) {
     return null;
   }
 }
+
+window.fetchJSON = fetchJSON;
