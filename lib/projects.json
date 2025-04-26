@@ -1,62 +1,102 @@
-[
-	{
-		"title": "Lorem ipsum dolor sit.",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-	},
-	{
-		"title": "Architecto minima sed omnis?",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Est, reiciendis aspernatur debitis maxime et itaque animi sit quod quo, tempore incidunt tempora dignissimos exercitationem enim numquam quam quaerat optio laborum ut unde hic delectus laboriosam? Quasi, cupiditate corporis."
-	},
-	{
-		"title": "Asperiores rem repellendus doloremque.",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Eligendi tenetur quae quos recusandae est. Cumque, voluptatem. Quo nihil dignissimos molestiae explicabo praesentium aspernatur debitis, illo rerum possimus quam ducimus earum nulla officiis maiores itaque repellat corporis soluta labore?"
-	},
-	{
-		"title": "Laudantium reprehenderit placeat perspiciatis.",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Quo minus perferendis nulla corrupti repellat dolorem dolore assumenda sit minima ducimus quidem ullam, id ipsa dicta tempora laborum officiis unde possimus cumque nobis alias inventore! Ullam repudiandae iusto nam."
-	},
-	{
-		"title": "Consequuntur autem eos facere.",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Laborum alias ea unde harum aspernatur? Molestiae, veritatis, possimus, numquam ex excepturi quod ducimus sit odit optio quibusdam sequi aliquid itaque tempore perspiciatis placeat expedita vero voluptates. Sit, aspernatur sint!"
-	},
-	{
-		"title": "Quos sint quaerat omnis?",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Est neque, velit nam rerum error odio voluptates voluptatem magnam laboriosam ad? Doloribus, id et itaque unde porro totam ullam quaerat blanditiis odit animi eveniet aut, voluptate velit iure odio."
-	},
-	{
-		"title": "Iste ipsam magni fuga!",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Velit omnis suscipit nemo quia? Iste maiores numquam labore quia nemo eveniet odit, modi magnam? Architecto officia sint est. Architecto iste minima consequuntur explicabo illo error sed at dolore nostrum!"
-	},
-	{
-		"title": "Ipsum, aperiam magni? Nobis.",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Delectus magni, vel, quod mollitia hic rem temporibus, sint doloribus tenetur qui dolores tempore quisquam fuga nobis recusandae molestiae ipsum nostrum maxime eaque dicta aperiam eum quas beatae. At, neque."
-	},
-	{
-		"title": "Dicta nihil odit illo?",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Vitae quos laudantium officiis rerum, accusamus delectus aspernatur quas nulla, magni sed, excepturi saepe incidunt laboriosam alias at aliquam atque quisquam autem nesciunt. Minus, reprehenderit odit nam illo natus aspernatur?"
-	},
-	{
-		"title": "Vel earum nulla facilis.",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Aut voluptatem sint atque corrupti accusamus necessitatibus possimus et, itaque nulla id deleniti nemo repellendus asperiores molestias laudantium, mollitia ad dicta. Laboriosam, itaque. Quos corporis, perferendis natus officiis beatae qui."
-	},
-	{
-		"title": "Nobis iste neque quaerat.",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Quos, recusandae, sit rerum velit nostrum nihil quisquam tempora repellat sed quibusdam facilis. Assumenda quaerat ab, nesciunt odio facere sit, ipsa necessitatibus tempora, maiores commodi sed quae provident deserunt at?"
-	},
-	{
-		"title": "Iusto, incidunt. Totam, illum.",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Tempore, eveniet minus velit, earum aperiam necessitatibus repellendus provident accusamus illum officiis doloribus, eum saepe est aut numquam distinctio pariatur natus totam repellat. Numquam nulla libero sapiente magnam nostrum ex."
-	}
-]
+{
+	"title": "Projects",
+	"projects": [
+	  {
+		"title": "Textual Element Impact",
+		"image": {
+		  "src": "images/textualelement.png",
+		  "alt": "Review Length Vs. Rating"
+		},
+		"description": "Analyzing textual elements of a recipe to determine the magnitude of impact on user engagement and ratings. <a href=\"https://haechristine.github.io/TextualElementImpact/\" target=\"_blank\"> Report Link</a>"
+	  },
+	  {
+		"title": "Predicting Median Salary Across the United States",
+		"image": {
+		  "src": "images/predictsalary.png",
+		  "alt": "Distribution of Salaries"
+		},
+		"description": "As students are actively searching for their first job, one of the most sought-after questions is: How much will the salary be? Individuals seek higher education in chances to secure a job with a higher salary, and with the world becoming more technologically driven, certain jobs tend to be on the higher salary spectrum. In this report, we delve deep into LinkedIn job postings to analyze job listing characteristics (location, industry, experience, work type, and company) that can most accurately predict the median annual salary."
+	  },
+	  {
+		"title": "Hunter Industries Specification Market Analysis",
+		"image": {
+		  "src": "images/hunter.png",
+		  "alt": "Hunter Industries Logo"
+		},
+		"description": "In order to better understand Hunter's market share, we needed to find out more about its specification rate. Since we lacked crucial information about the overall size of the specification market, my role was to develop a method for more accurately estimating the monetary value of Hunter's specification rate within the irrigation sector. Specifically, I focused on projects from 2023 valued at $1 million or more as this was the first full year of \"normal\" data post-pandemic."
+	  },
+	  {
+		"title": "Analyzing Grocery Stores and their Nutritional Value",
+		"image": {
+		  "src": "images/mealprep.png",
+		  "alt": "Visualization of Nutritional Value (Target vs. Walmart)"
+		},
+		"description": "As a college student, eating regular, nutritious meals can be difficult due to our busy schedules. The majority of us transition from getting meals from our parents to being on a meal plan, then to planning our meals. For days when I want a quick, easy meal, I want to know which store would provide the best nutritious meal. As UC San Diego students, we have both a Target and a Whole Foods that are readily accessible to us due to proximity, therefore, I decided to focus on those two stores to help determine where students should purchase their next prepared meal."
+	  },
+	  {
+		"title": "To Be Completed...",
+		"image": {
+		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
+		  "alt": ""
+		},
+		"description": "To Be Completed..."
+	  },
+	  {
+		"title": "To Be Completed...",
+		"image": {
+		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
+		  "alt": ""
+		},
+		"description": "To Be Completed..."
+	  },
+	  {
+		"title": "To Be Completed...",
+		"image": {
+		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
+		  "alt": ""
+		},
+		"description": "To Be Completed..."
+	  },
+	  {
+		"title": "To Be Completed...",
+		"image": {
+		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
+		  "alt": ""
+		},
+		"description": "To Be Completed..."
+	  },
+	  {
+		"title": "To Be Completed...",
+		"image": {
+		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
+		  "alt": ""
+		},
+		"description": "To Be Completed..."
+	  },
+	  {
+		"title": "To Be Completed...",
+		"image": {
+		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
+		  "alt": ""
+		},
+		"description": "To Be Completed..."
+	  },
+	  {
+		"title": "To Be Completed...",
+		"image": {
+		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
+		  "alt": ""
+		},
+		"description": "To Be Completed..."
+	  },
+	  {
+		"title": "To Be Completed...",
+		"image": {
+		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
+		  "alt": ""
+		},
+		"description": "To Be Completed..."
+	  }
+	]
+  }
+  
