@@ -134,5 +134,10 @@ export async function fetchJSON(url) {
     return data;
   } catch (error) {
     console.error('Error fetching or parsing JSON data:', error);
+    return null;
   }
 }
+
+
+// Make it available globally for testing in the console
+window.fetchJSON = fetchJSON;
