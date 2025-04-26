@@ -137,7 +137,3 @@ export async function fetchJSON(url) {
     return null;
   }
 }
-
-
-// Make it available globally for testing in the console
-window.fetchJSON = fetchJSON;
