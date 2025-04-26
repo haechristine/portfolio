@@ -1,6 +1,4 @@
-{
-	"title": "Projects",
-	"projects": [
+[
 	  {
 		"title": "Textual Element Impact",
 		"image": {
@@ -97,6 +95,6 @@
 		},
 		"description": "To Be Completed..."
 	  }
-	]
-  }
+]
+  
   
