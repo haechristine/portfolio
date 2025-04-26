@@ -122,7 +122,7 @@ form?.addEventListener('submit', function(event) {
   location.href = url;
 });
 
-async function fetchJSON(url) {
+export async function fetchJSON(url) {
   try {
     const response = await fetch(url);
     console.log(response);
