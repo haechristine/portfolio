@@ -140,3 +140,37 @@ export async function fetchJSON(url) {
 }
 
 window.fetchJSON = fetchJSON;
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  // Check if the container element is valid
+  if (!containerElement || !(containerElement instanceof HTMLElement)) {
+    console.error("Invalid container element provided.");
+    return;
+  }
+
+  // Clear the container before appending new content
+  containerElement.innerHTML = '';
+
+  // Validate headingLevel and ensure it's a valid HTML heading tag
+  const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  if (!validHeadingLevels.includes(headingLevel)) {
+    console.warn(`Invalid headingLevel '${headingLevel}', defaulting to 'h2'.`);
+    headingLevel = 'h2';  // Default to 'h2' if invalid
+  }
+
+  // Loop through the projects and render each one
+  projects.forEach(project => {
+    // Create a new <article> element
+    const article = document.createElement('article');
+
+    // Define the content dynamically
+    article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image || 'default-image.jpg'}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+
+    // Append the article to the container
+    containerElement.appendChild(article);
+  });
+}
