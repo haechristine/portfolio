@@ -121,6 +121,18 @@ button:hover {
   margin: 0;
 }
 
+.projects img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.projects p {
+  margin: 0.5rem 0 0;
+  line-height: 1.4;
+}
+
 h1 {
   font-size: 4em;
 }
