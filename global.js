@@ -167,7 +167,12 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
       <img src="${project.image?.src || 'default-image.jpg'}" alt="${project.image?.alt || project.title}">
+      <div>
       <p>${project.description}</p>
+      <p style="font-family: Baskerville, serif; font-variant-numeric: oldstyle-nums; color: #555; margin-top: 0.25em;">
+          ${project.year}
+        </p>
+      <div>
     `;
 
     // Append the article to the container
