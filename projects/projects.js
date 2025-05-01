@@ -57,7 +57,7 @@ function arcGenerator(d) {
 
 // let arcs = arcData.map((d) => arcGenerator(d));
 
-arcs.forEach((arc) => {
+arcs.forEach((arc, i) => {
     svg.append('path')
     .attr('d', arc)
     .attr('fill', colors(i));
