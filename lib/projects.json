@@ -3,7 +3,7 @@
 		"title": "Textual Element Impact",
 		"year": "2023",
 		"image": {
-		  "src": "/images/textualelement.png",
+		  "src": "/portfolio/images/textualelement.png",
 		  "alt": "Review Length Vs. Rating"
 		},
 		"description": "Analyzing textual elements of a recipe to determine the magnitude of impact on user engagement and ratings. <a href=\"https://haechristine.github.io/TextualElementImpact/\" target=\"_blank\"> Report Link</a>"
