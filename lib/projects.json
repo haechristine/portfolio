@@ -36,13 +36,13 @@
 		"description": "As a college student, eating regular, nutritious meals can be difficult due to our busy schedules. The majority of us transition from getting meals from our parents to being on a meal plan, then to planning our meals. For days when I want a quick, easy meal, I want to know which store would provide the best nutritious meal. As UC San Diego students, we have both a Target and a Whole Foods that are readily accessible to us due to proximity, therefore, I decided to focus on those two stores to help determine where students should purchase their next prepared meal."
 	  },
 	  {
-		"title": "To Be Completed...",
-		"year": "2023",
+		"title": "Persuasive or Deceptive Visualization",
+		"year": "2025",
 		"image": {
-		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
-		  "alt": ""
+		  "src": "../images/forprop.png",
+		  "alt": "Visualization for the Proposition"
 		},
-		"description": "To Be Completed..."
+		"description": "Visualizations can easily be manipulated depending on how the data is processed. This project delves deep into ethical analysis and visualization and explores the process of creating a graph to support both sides of a personal proposition. <a href=\"https://haechristine.github.io/Proposition-Project/\" target=\"_blank\"> Report Link</a>"
 	  },
 	  {
 		"title": "To Be Completed...",
