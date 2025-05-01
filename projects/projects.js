@@ -11,30 +11,54 @@ if (titleElement) {
 renderProjects(projects, projectsContainer, 'h2');
 
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
-let arc = d3.arc().innerRadius(0).outerRadius(50)({
-    startAngle: 0,
-    endAngle: 2 * Math.PI,
-  });
-  d3.select('svg').append('path').attr('d', arc).attr('fill', 'red');
 
 let data = [1, 2];
-let total = 0;
+let colors = ['gold', 'purple'];
 
-for (let d of data) {
-  total += d;
-}
+let sliceGenerator = d3.pie();
+let arcData = sliceGenerator(data);
 
-let angle = 0;
-let arcData = [];
+function arcGenerator(d) {
+    let r = 50;
+    let x1 = r * Math.cos(d.startAngle);
+    let y1 = r * Math.sin(d.startAngle);
+    let x2 = r * Math.cos(d.endAngle);
+    let y2 = r * Math.sin(d.endAngle);
+    let largeArc = d.endAngle - d.startAngle > Math.PI ? 1 : 0;
+  
+    return `
+      M 0 0
+      L ${x1} ${y1}
+      A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2}
+      Z
+    `;
+  }
+  
+  // Convert to path strings
+  let arcs = arcData.map((d) => arcGenerator(d));
+  
+  // Append paths to SVG with colors
+  let svg = d3.select('#projects-pie-plot');
 
-for (let d of data) {
-  let endAngle = angle + (d / total) * 2 * Math.PI;
-  arcData.push({ startAngle: angle, endAngle });
-  angle = endAngle;
-}
+// let total = 0;
 
-let arcs = arcData.map((d) => arcGenerator(d));
+// for (let d of data) {
+//   total += d;
+// }
+
+// let angle = 0;
+// let arcData = [];
+
+// for (let d of data) {
+//   let endAngle = angle + (d / total) * 2 * Math.PI;
+//   arcData.push({ startAngle: angle, endAngle });
+//   angle = endAngle;
+// }
+
+// let arcs = arcData.map((d) => arcGenerator(d));
 
 arcs.forEach((arc) => {
-    // TODO, fill in step for appending path to svg using D3
+    svg.append('path')
+    .attr('d', arc)
+    .attr('fill', colors[i % colors.length]);
   });
