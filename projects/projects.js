@@ -60,5 +60,5 @@ function arcGenerator(d) {
 arcs.forEach((arc) => {
     svg.append('path')
     .attr('d', arc)
-    .attr('fill', colors[i % colors.length]);
+    .attr('fill', colors(i));
   });
