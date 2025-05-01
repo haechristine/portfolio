@@ -12,7 +12,7 @@
 		"title": "Predicting Median Salary Across the United States",
 		"year": "2025",
 		"image": {
-		  "src": "/images/predictsalary.png",
+		  "src": "/portfolio/images/predictsalary.png",
 		  "alt": "Distribution of Salaries"
 		},
 		"description": "As students are actively searching for their first job, one of the most sought-after questions is: How much will the salary be? Individuals seek higher education in chances to secure a job with a higher salary, and with the world becoming more technologically driven, certain jobs tend to be on the higher salary spectrum. In this report, we delve deep into LinkedIn job postings to analyze job listing characteristics (location, industry, experience, work type, and company) that can most accurately predict the median annual salary."
@@ -21,7 +21,7 @@
 		"title": "Hunter Industries Specification Market Analysis",
 		"year": "2025",
 		"image": {
-		  "src": "/images/hunter.png",
+		  "src": "/portfolio/images/hunter.png",
 		  "alt": "Hunter Industries Logo"
 		},
 		"description": "In order to better understand Hunter's market share, we needed to find out more about its specification rate. Since we lacked crucial information about the overall size of the specification market, my role was to develop a method for more accurately estimating the monetary value of Hunter's specification rate within the irrigation sector. Specifically, I focused on projects from 2023 valued at $1 million or more as this was the first full year of \"normal\" data post-pandemic."
@@ -30,7 +30,7 @@
 		"title": "Analyzing Grocery Stores and their Nutritional Value",
 		"year": "2025",
 		"image": {
-		  "src": "/images/mealprep.png",
+		  "src": "/portfolio/images/mealprep.png",
 		  "alt": "Visualization of Nutritional Value (Target vs. Walmart)"
 		},
 		"description": "As a college student, eating regular, nutritious meals can be difficult due to our busy schedules. The majority of us transition from getting meals from our parents to being on a meal plan, then to planning our meals. For days when I want a quick, easy meal, I want to know which store would provide the best nutritious meal. As UC San Diego students, we have both a Target and a Whole Foods that are readily accessible to us due to proximity, therefore, I decided to focus on those two stores to help determine where students should purchase their next prepared meal."
@@ -39,7 +39,7 @@
 		"title": "Persuasive or Deceptive Visualization",
 		"year": "2025",
 		"image": {
-		  "src": "/images/forprop.png",
+		  "src": "/portfolio/images/forprop.png",
 		  "alt": "Visualization for the Proposition"
 		},
 		"description": "Visualizations can easily be manipulated depending on how the data is processed. This project delves deep into ethical analysis and visualization and explores the process of creating a graph to support both sides of a personal proposition. <a href=\"https://haechristine.github.io/Proposition-Project/\" target=\"_blank\"> Report Link</a>"
