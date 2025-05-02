@@ -55,20 +55,30 @@ function renderPieChart(data) {
       .attr('class', 'wedge')
       .on('click', () => {
         selectedIndex = selectedIndex === i ? -1 : i;
-      
+        
         svg.selectAll('path')
           .attr('class', (_, idx) => idx === selectedIndex ? 'selected wedge' : 'wedge');
-      
+        
         legend.selectAll('li')
           .attr('class', (_, idx) => idx === selectedIndex ? 'selected legend-item' : 'legend-item');
-      
-        if (selectedIndex === -1) {
-          renderProjects(data, projectsContainer, 'h2'); // use current filtered data
-        } else {
+        
+        // Combine both the search query filter and the pie slice filter
+        let filteredProjects = data;
+        
+        if (selectedIndex !== -1) {
           const selectedYear = pieData[selectedIndex].label;
-          const filteredByYear = data.filter(project => project.year === selectedYear);
-          renderProjects(filteredByYear, projectsContainer, 'h2');
+          filteredProjects = filteredProjects.filter(project => project.year === selectedYear);
         }
+      
+        if (query) {
+          filteredProjects = filteredProjects.filter(project => {
+            let values = Object.values(project).join('\n').toLowerCase();
+            return values.includes(query.toLowerCase());
+          });
+        }
+      
+        // After filtering by both year and search query, render the projects
+        renderProjects(filteredProjects, projectsContainer, 'h2');
       });
     });
 
