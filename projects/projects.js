@@ -1,88 +1,164 @@
 import { fetchJSON, renderProjects } from '../global.js';
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-const projects = await fetchJSON('../lib/projects.json');
+let projects = await fetchJSON('../lib/projects.json'); // now it's mutable
 const projectsContainer = document.querySelector('.projects');
 
 const titleElement = document.querySelector('.projects-title');
 if (titleElement) {
-    titleElement.textContent = `${projects.length} Projects`; 
+  titleElement.textContent = `${projects.length} Projects`;
 }
 
 renderProjects(projects, projectsContainer, 'h2');
+renderPieChart(projects); // call the pie chart on initial load
 
-import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+// -- Pie Chart Function --
+function renderPieChart(data) {
+  let svg = d3.select('#projects-pie-plot');
+  let legend = d3.select('.legend');
 
-// Step 1: Fetch project data using .then()
-d3.json('../lib/projects.json')
-  .then((projects) => {
-    // Step 2: Group projects by year and count the number of projects per year
-    let rolledData = d3.rollups(
-      projects,
-      (v) => v.length,
-      (d) => d.year
-    );
+  svg.selectAll('*').remove();
+  legend.selectAll('*').remove();
 
-    // Step 3: Map rolled data into a structure suitable for the pie chart
-    let data = rolledData.map(([year, count]) => ({
-      value: count,
-      label: year
-    }));
+  let rolledData = d3.rollups(data, v => v.length, d => d.year);
+  let pieData = rolledData.map(([year, count]) => ({
+    value: count,
+    label: year
+  }));
 
-    // Step 4: Create color scale and pie chart generator
-    let colors = d3.scaleOrdinal(d3.schemeTableau10);
-    let sliceGenerator = d3.pie().value((d) => d.value);
-    let arcData = sliceGenerator(data);
+  let colors = d3.scaleOrdinal(d3.schemeTableau10);
+  let sliceGenerator = d3.pie().value(d => d.value);
+  let arcData = sliceGenerator(pieData);
 
-    // Step 5: Arc generation function for pie chart slices
-    function arcGenerator(d) {
-      let r = 50; // radius of the pie chart
-      let x1 = r * Math.cos(d.startAngle);
-      let y1 = r * Math.sin(d.startAngle);
-      let x2 = r * Math.cos(d.endAngle);
-      let y2 = r * Math.sin(d.endAngle);
-      let largeArc = d.endAngle - d.startAngle > Math.PI ? 1 : 0;
+  function arcGenerator(d) {
+    let r = 50;
+    let x1 = r * Math.cos(d.startAngle);
+    let y1 = r * Math.sin(d.startAngle);
+    let x2 = r * Math.cos(d.endAngle);
+    let y2 = r * Math.sin(d.endAngle);
+    let largeArc = d.endAngle - d.startAngle > Math.PI ? 1 : 0;
 
-      return `
-        M 0 0
-        L ${x1} ${y1}
-        A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2}
-        Z
-      `;
-    }
+    return `
+      M 0 0
+      L ${x1} ${y1}
+      A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2}
+      Z
+    `;
+  }
 
-    // Step 6: Convert arcs to path strings
-    let arcs = arcData.map((d) => arcGenerator(d));
+  arcData.forEach((d, i) => {
+    svg.append('path')
+      .attr('d', arcGenerator(d))
+      .attr('fill', colors(i));
+  });
 
-    // Step 7: Append paths to SVG with colors
-    let svg = d3.select('#projects-pie-plot');
-    arcs.forEach((arc, i) => {
-      svg.append('path')
-        .attr('d', arc)
-        .attr('fill', colors(i)); // Apply colors to each slice
-    });
+  pieData.forEach((d, i) => {
+    legend.append('li')
+      .attr('style', `--color:${colors(i)}`)
+      .attr('class', 'legend-item')
+      .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+  });
+}
 
-    // Step 8: Append legend items
-    let legend = d3.select('.legend');
-    data.forEach((d, idx) => {
-      legend
-        .append('li')
-        .attr('style', `--color:${colors(idx)}`) // Set the color for each legend item
-        .attr('class', 'legend-item')
-        .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // Set the label and value in the legend
-    });
-  })
-
-
+// -- Search Handling --
 let query = '';
 let searchInput = document.querySelector('.searchBar');
 searchInput.addEventListener('change', (event) => {
-  // update query value
   query = event.target.value;
-  // filter projects
   let filteredProjects = projects.filter((project) => {
     let values = Object.values(project).join('\n').toLowerCase();
     return values.includes(query.toLowerCase());
   });
-  // render filtered projects
+
   renderProjects(filteredProjects, projectsContainer, 'h2');
+  renderPieChart(filteredProjects);
 });
+
+// import { fetchJSON, renderProjects } from '../global.js';
+
+// let projects = await fetchJSON('../lib/projects.json');
+// const projectsContainer = document.querySelector('.projects');
+
+// const titleElement = document.querySelector('.projects-title');
+// if (titleElement) {
+//     titleElement.textContent = `${projects.length} Projects`; 
+// }
+
+// renderProjects(projects, projectsContainer, 'h2');
+
+// import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+
+// // Step 1: Fetch project data using .then()
+// d3.json('../lib/projects.json')
+//   .then((projects) => {
+//     // Step 2: Group projects by year and count the number of projects per year
+//     let rolledData = d3.rollups(
+//       projects,
+//       (v) => v.length,
+//       (d) => d.year
+//     );
+
+//     // Step 3: Map rolled data into a structure suitable for the pie chart
+//     let data = rolledData.map(([year, count]) => ({
+//       value: count,
+//       label: year
+//     }));
+
+//     // Step 4: Create color scale and pie chart generator
+//     let colors = d3.scaleOrdinal(d3.schemeTableau10);
+//     let sliceGenerator = d3.pie().value((d) => d.value);
+//     let arcData = sliceGenerator(data);
+
+//     // Step 5: Arc generation function for pie chart slices
+//     function arcGenerator(d) {
+//       let r = 50; // radius of the pie chart
+//       let x1 = r * Math.cos(d.startAngle);
+//       let y1 = r * Math.sin(d.startAngle);
+//       let x2 = r * Math.cos(d.endAngle);
+//       let y2 = r * Math.sin(d.endAngle);
+//       let largeArc = d.endAngle - d.startAngle > Math.PI ? 1 : 0;
+
+//       return `
+//         M 0 0
+//         L ${x1} ${y1}
+//         A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2}
+//         Z
+//       `;
+//     }
+
+//     // Step 6: Convert arcs to path strings
+//     let arcs = arcData.map((d) => arcGenerator(d));
+
+//     // Step 7: Append paths to SVG with colors
+//     let svg = d3.select('#projects-pie-plot');
+//     arcs.forEach((arc, i) => {
+//       svg.append('path')
+//         .attr('d', arc)
+//         .attr('fill', colors(i)); // Apply colors to each slice
+//     });
+
+//     // Step 8: Append legend items
+//     let legend = d3.select('.legend');
+//     data.forEach((d, idx) => {
+//       legend
+//         .append('li')
+//         .attr('style', `--color:${colors(idx)}`) // Set the color for each legend item
+//         .attr('class', 'legend-item')
+//         .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // Set the label and value in the legend
+//     });
+//   })
+
+
+// let query = '';
+// let searchInput = document.querySelector('.searchBar');
+// searchInput.addEventListener('change', (event) => {
+//   // update query value
+//   query = event.target.value;
+//   // filter projects
+//   let filteredProjects = projects.filter((project) => {
+//     let values = Object.values(project).join('\n').toLowerCase();
+//     return values.includes(query.toLowerCase());
+//   });
+//   // render filtered projects
+//   renderProjects(filteredProjects, projectsContainer, 'h2');
+// });
