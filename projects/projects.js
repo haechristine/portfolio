@@ -71,56 +71,38 @@ d3.json('../lib/projects.json')
         .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // Set the label and value in the legend
     });
   })
-// let projects = ...;
-// let rolledData = d3.rollups(
-//   projects,
-//   (v) => v.length,
-//   (d) => d.year,
-// );
 
-// let data = rolledData.map(([year, count]) => {
-//   return { value: count, label: year };
-// });
+let query = '';
+// Select the search bar element
+let searchInput = document.querySelector('.searchBar');
 
-// let colors = d3.scaleOrdinal(d3.schemeTableau10);
-// let sliceGenerator = d3.pie().value((d) => d.value);
-// let arcData = sliceGenerator(data);
+// Add event listener to listen for input changes
+searchInput.addEventListener('input', (event) => {
+  // Update the query with the current value from the search bar
+  query = event.target.value.toLowerCase(); // Convert to lowercase for case-insensitive search
 
-// function arcGenerator(d) {
-//     let r = 50;
-//     let x1 = r * Math.cos(d.startAngle);
-//     let y1 = r * Math.sin(d.startAngle);
-//     let x2 = r * Math.cos(d.endAngle);
-//     let y2 = r * Math.sin(d.endAngle);
-//     let largeArc = d.endAngle - d.startAngle > Math.PI ? 1 : 0;
-  
-//     return `
-//       M 0 0
-//       L ${x1} ${y1}
-//       A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2}
-//       Z
-//     `;
-//   }
-  
-//   // Convert to path strings
-//   let arcs = arcData.map((d) => arcGenerator(d));
-  
-//   // Append paths to SVG with colors
-//   let svg = d3.select('#projects-pie-plot');
+  // Filter the projects based on the query
+  let filteredProjects = projects.filter((project) =>
+    project.title.toLowerCase().includes(query) // Case-insensitive search by title
+  );
 
-// arcs.forEach((arc, i) => {
-//     svg.append('path')
-//     .attr('d', arc)
-//     .attr('fill', colors(i));
-//   });
+  // Render the updated projects (you can adjust this part to match your render function)
+  renderProjects(filteredProjects);
+});
 
-//   let legend = d3.select('.legend');
-//   data.forEach((d, idx) => {
-//     legend
-//       .append('li')
-//       .attr('style', `--color:${colors(idx)}`) // set the style attribute while passing in parameters
-//       .attr('class', 'legend-item')
-//       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
-//   });
+// Function to render projects (this is just an example structure)
+function renderProjects(projects) {
+  let projectContainer = document.querySelector('#project-container');
+  projectContainer.innerHTML = ''; // Clear previous results
 
-  let query = '';
+  // Loop through the filtered projects and display them
+  projects.forEach((project) => {
+    let projectElement = document.createElement('div');
+    projectElement.classList.add('project');
+    projectElement.innerHTML = `
+      <h3>${project.title}</h3>
+      <p>${project.description}</p>
+    `;
+    projectContainer.appendChild(projectElement);
+  });
+}
