@@ -55,14 +55,21 @@ function renderPieChart(data) {
       .attr('class', 'wedge')
       .on('click', () => {
         selectedIndex = selectedIndex === i ? -1 : i;
-
+      
         svg.selectAll('path')
           .attr('class', (_, idx) => idx === selectedIndex ? 'selected wedge' : 'wedge');
-
+      
         legend.selectAll('li')
           .attr('class', (_, idx) => idx === selectedIndex ? 'selected legend-item' : 'legend-item');
+      
+        if (selectedIndex === -1) {
+          renderProjects(data, projectsContainer, 'h2'); // use current filtered data
+        } else {
+          const selectedYear = pieData[selectedIndex].label;
+          const filteredByYear = data.filter(project => project.year === selectedYear);
+          renderProjects(filteredByYear, projectsContainer, 'h2');
+        }
       });
-  });
 
   pieData.forEach((d, i) => {
     legend.append('li')
