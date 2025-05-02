@@ -70,6 +70,7 @@ function renderPieChart(data) {
           renderProjects(filteredByYear, projectsContainer, 'h2');
         }
       });
+    });
 
   pieData.forEach((d, i) => {
     legend.append('li')
