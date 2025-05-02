@@ -59,8 +59,11 @@ function renderPieChart(data) {
         svg.selectAll('path')
           .attr('class', (_, idx) => idx === selectedIndex ? 'selected wedge' : 'wedge');
         
-        legend.selectAll('li')
-          .attr('class', (_, idx) => idx === selectedIndex ? 'selected legend-item' : 'legend-item');
+          legend.selectAll('li')
+          .attr('class', (_, idx) => idx === selectedIndex ? 'selected legend-item' : 'legend-item')
+          .style('--color', (_, idx) =>
+            idx === selectedIndex ? 'oklch(60% 45% 0)' : colors(idx)
+          );
         
         // Combine both the search query filter and the pie slice filter
         let filteredProjects = data;

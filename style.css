@@ -356,6 +356,7 @@ path.selected {
 } */
 
 .legend-item {
+  --color: inherit;
   color: var(--color);
 }
 
