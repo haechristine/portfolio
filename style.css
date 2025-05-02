@@ -368,10 +368,5 @@ path.selected {
 }
 
 .legend-item.selected {
-  /* Optional: Emphasize it differently */
-  font-weight: bold;
-  border: 1px solid var(--color);
-  border-radius: 4px;
-  padding: 2px 4px;
   --color: oklch(60% 45% 0);
 }
