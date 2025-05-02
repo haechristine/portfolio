@@ -9,6 +9,9 @@ if (titleElement) {
   titleElement.textContent = `${projects.length} Projects`;
 }
 
+let selectedIndex = -1; 
+let query = '';         
+
 renderProjects(projects, projectsContainer, 'h2');
 renderPieChart(projects); // call the pie chart on initial load
 
@@ -20,7 +23,8 @@ function renderPieChart(data) {
   svg.selectAll('*').remove();
   legend.selectAll('*').remove();
 
-  let rolledData = d3.rollups(data, v => v.length, d => d.year);
+  // ⭐️ Always base pieData on the full dataset so the pie slices are consistent
+  let rolledData = d3.rollups(projects, v => v.length, d => d.year); // <-- changed `data` to `projects`
   let pieData = rolledData.map(([year, count]) => ({
     value: count,
     label: year
@@ -46,43 +50,26 @@ function renderPieChart(data) {
     `;
   }
 
-  let selectedIndex = -1;
-
   arcData.forEach((d, i) => {
     svg.append('path')
       .attr('d', arcGenerator(d))
       .attr('fill', colors(i))
       .attr('class', 'wedge')
       .on('click', () => {
-        selectedIndex = selectedIndex === i ? -1 : i;
-        
+        selectedIndex = selectedIndex === i ? -1 : i; // toggle logic
+
         svg.selectAll('path')
           .attr('class', (_, idx) => idx === selectedIndex ? 'selected wedge' : 'wedge');
-        
-          legend.selectAll('li')
+
+        legend.selectAll('li')
           .attr('class', (_, idx) => idx === selectedIndex ? 'selected legend-item' : 'legend-item')
           .style('--color', (_, idx) =>
             idx === selectedIndex ? 'oklch(60% 45% 0)' : colors(idx)
           );
-        
-        // Combine both the search query filter and the pie slice filter
-        let filteredProjects = data;
-        
-        if (selectedIndex !== -1) {
-          const selectedYear = pieData[selectedIndex].label;
-          filteredProjects = filteredProjects.filter(project => project.year === selectedYear);
-        }
-      
-        if (query) {
-          filteredProjects = filteredProjects.filter(project => {
-            let values = Object.values(project).join('\n').toLowerCase();
-            return values.includes(query.toLowerCase());
-          });
-        }
-        // After filtering by both year and search query, render the projects
-        renderProjects(filteredProjects, projectsContainer, 'h2');
+
+        applyCombinedFilters(); // ⭐️ Use shared filtering function
       });
-    });
+  });
 
   pieData.forEach((d, i) => {
     legend.append('li')
@@ -92,16 +79,31 @@ function renderPieChart(data) {
   });
 }
 
+// -- Shared Filtering Logic ⭐️ NEW FUNCTION --
+function applyCombinedFilters() {
+  let filtered = projects;
+
+  // Filter by pie chart
+  if (selectedIndex !== -1) {
+    const selectedYear = d3.rollups(projects, v => v.length, d => d.year)
+      .map(([year]) => year)[selectedIndex]; // consistent index
+    filtered = filtered.filter(p => p.year === selectedYear);
+  }
+
+  // Filter by search
+  if (query) {
+    filtered = filtered.filter(project => {
+      let values = Object.values(project).join('\n').toLowerCase();
+      return values.includes(query.toLowerCase());
+    });
+  }
+
+  renderProjects(filtered, projectsContainer, 'h2');
+}
+
 // -- Search Handling --
-let query = '';
 let searchInput = document.querySelector('.searchBar');
 searchInput.addEventListener('input', (event) => {
-  query = event.target.value;
-  let filteredProjects = projects.filter((project) => {
-    let values = Object.values(project).join('\n').toLowerCase();
-    return values.includes(query.toLowerCase());
-  });
-
-  renderProjects(filteredProjects, projectsContainer, 'h2');
-  renderPieChart(filteredProjects);
+  query = event.target.value; // just update the global query
+  applyCombinedFilters();     // ⭐️ Use shared filter logic again
 });
