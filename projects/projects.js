@@ -12,10 +12,16 @@ renderProjects(projects, projectsContainer, 'h2');
 
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-let data = [1, 2, 3, 4, 5, 5];
-let colors = d3.scaleOrdinal(d3.schemeTableau10);
+let data = [
+  { value: 1, label: 'apples' },
+  { value: 2, label: 'oranges' },
+  { value: 3, label: 'mangos' },
+  { value: 4, label: 'pears' },
+  { value: 5, label: 'limes' },
+  { value: 5, label: 'cherries' },
+];let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-let sliceGenerator = d3.pie();
+let sliceGenerator = d3.pie().value((d) => d.value);
 let arcData = sliceGenerator(data);
 
 function arcGenerator(d) {
@@ -39,23 +45,6 @@ function arcGenerator(d) {
   
   // Append paths to SVG with colors
   let svg = d3.select('#projects-pie-plot');
-
-// let total = 0;
-
-// for (let d of data) {
-//   total += d;
-// }
-
-// let angle = 0;
-// let arcData = [];
-
-// for (let d of data) {
-//   let endAngle = angle + (d / total) * 2 * Math.PI;
-//   arcData.push({ startAngle: angle, endAngle });
-//   angle = endAngle;
-// }
-
-// let arcs = arcData.map((d) => arcGenerator(d));
 
 arcs.forEach((arc, i) => {
     svg.append('path')
