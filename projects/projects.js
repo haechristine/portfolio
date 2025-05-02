@@ -72,37 +72,17 @@ d3.json('../lib/projects.json')
     });
   })
 
+
 let query = '';
-// Select the search bar element
 let searchInput = document.querySelector('.searchBar');
-
-// Add event listener to listen for input changes
-searchInput.addEventListener('input', (event) => {
-  // Update the query with the current value from the search bar
-  query = event.target.value.toLowerCase(); // Convert to lowercase for case-insensitive search
-
-  // Filter the projects based on the query
-  let filteredProjects = projects.filter((project) =>
-    project.title.toLowerCase().includes(query) // Case-insensitive search by title
-  );
-
-  // Render the updated projects (you can adjust this part to match your render function)
-  renderProjects(filteredProjects);
-});
-
-// Function to render projects (this is just an example structure)
-function renderProjects(projects) {
-  let projectContainer = document.querySelector('#project-container');
-  projectContainer.innerHTML = ''; // Clear previous results
-
-  // Loop through the filtered projects and display them
-  projects.forEach((project) => {
-    let projectElement = document.createElement('div');
-    projectElement.classList.add('project');
-    projectElement.innerHTML = `
-      <h3>${project.title}</h3>
-      <p>${project.description}</p>
-    `;
-    projectContainer.appendChild(projectElement);
+searchInput.addEventListener('change', (event) => {
+  // update query value
+  query = event.target.value;
+  // filter projects
+  let filteredProjects = projects.filter((project) => {
+    let values = Object.values(project).join('\n').toLowerCase();
+    return values.includes(query.toLowerCase());
   });
-}
+  // render filtered projects
+  renderProjects(filteredProjects, projectsContainer, 'h2');
+});
