@@ -76,7 +76,6 @@ function renderPieChart(data) {
             return values.includes(query.toLowerCase());
           });
         }
-      
         // After filtering by both year and search query, render the projects
         renderProjects(filteredProjects, projectsContainer, 'h2');
       });
