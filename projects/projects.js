@@ -12,14 +12,22 @@ renderProjects(projects, projectsContainer, 'h2');
 
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-let data = [
-  { value: 1, label: 'apples' },
-  { value: 2, label: 'oranges' },
-  { value: 3, label: 'mangos' },
-  { value: 4, label: 'pears' },
-  { value: 5, label: 'limes' },
-  { value: 5, label: 'cherries' },
-];let colors = d3.scaleOrdinal(d3.schemeTableau10);
+d3.json('../lib/projects.json').then(projects => {
+  let rolledData = d3.rollups(
+    projects,
+    v => v.length,
+    d => d.year
+  );
+
+  let data = rolledData.map(([year, count]) => ({
+    label: year,
+    value: count
+  }));
+
+  // now use `data` to build your chart and legend
+});
+
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 let sliceGenerator = d3.pie().value((d) => d.value);
 let arcData = sliceGenerator(data);
