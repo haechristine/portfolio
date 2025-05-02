@@ -308,6 +308,8 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 0.5rem;
   margin: 1rem 0;
   background-color: #f9f9f9;
+  flex: 1;
+  min-width: 200px;
 }
 
 .legend-item {
@@ -323,5 +325,12 @@ h1, h2, h3, h4, h5, h6 {
   aspect-ratio: 1 / 1;
   background-color: var(--color);
   border-radius: 4px;
+}
+
+.container {
+  display: flex;
+  align-items: center; /* vertically center items */
+  gap: 2rem;            /* space between pie and legend */
+  flex-wrap: wrap;      /* optional: allow wrap on small screens */
 }
 
