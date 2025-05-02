@@ -351,6 +351,27 @@ path.selected {
   fill: oklch(60% 45% 0) !important;
 }
 
-li.selected {
+/* li.selected {
+  --color: oklch(60% 45% 0);
+} */
+
+.legend-item {
+  color: var(--color);
+}
+
+.legend-item .swatch {
+  background-color: var(--color);
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+}
+
+.legend-item.selected {
+  /* Optional: Emphasize it differently */
+  font-weight: bold;
+  border: 1px solid var(--color);
+  border-radius: 4px;
+  padding: 2px 4px;
   --color: oklch(60% 45% 0);
 }
