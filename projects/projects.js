@@ -23,7 +23,7 @@ function renderPieChart(data) {
   svg.selectAll('*').remove();
   legend.selectAll('*').remove();
 
-  // ⭐️ Always base pieData on the full dataset so the pie slices are consistent
+  // Always base pieData on the full dataset so the pie slices are consistent
   let rolledData = d3.rollups(projects, v => v.length, d => d.year); // <-- changed `data` to `projects`
   let pieData = rolledData.map(([year, count]) => ({
     value: count,
@@ -67,7 +67,7 @@ function renderPieChart(data) {
             idx === selectedIndex ? 'oklch(60% 45% 0)' : colors(idx)
           );
 
-        applyCombinedFilters(); // ⭐️ Use shared filtering function
+        applyCombinedFilters(); // Use shared filtering function
       });
   });
 
@@ -79,7 +79,7 @@ function renderPieChart(data) {
   });
 }
 
-// -- Shared Filtering Logic ⭐️ NEW FUNCTION --
+// Shared Filtering Logic 
 function applyCombinedFilters() {
   let filtered = projects;
 
@@ -104,6 +104,6 @@ function applyCombinedFilters() {
 // -- Search Handling --
 let searchInput = document.querySelector('.searchBar');
 searchInput.addEventListener('input', (event) => {
-  query = event.target.value; // just update the global query
-  applyCombinedFilters();     // ⭐️ Use shared filter logic again
+  query = event.target.value; //  update the global query
+  applyCombinedFilters();     // Use shared filter logic 
 });
