@@ -344,4 +344,13 @@ h1, h2, h3, h4, h5, h6 {
 
 path {
   transition: 300ms;
+  cursor: pointer;
+}
+
+path.selected {
+  fill: oklch(60% 45% 0) !important;
+}
+
+li.selected {
+  --color: oklch(60% 45% 0);
 }
