@@ -45,7 +45,7 @@ async function loadData() {
   }
    
 let data = await loadData();
-let commits = processCommits(data)
+let commits = processCommits(data);
 console.log(commits)
 
 function renderCommitInfo(data, commits) {
@@ -89,6 +89,8 @@ function renderCommitInfo(data, commits) {
     dl.append('dt').text('Most active period');
     dl.append('dd').text(maxPeriod || 'N/A');
   }
+
+  renderCommitInfo(data, commits);
 
   function renderScatterPlot(data, commits) {
     // Put all the JS code of Steps inside this function
