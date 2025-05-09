@@ -177,6 +177,7 @@ function renderCommitInfo(data, commits) {
     .on('mouseenter', (event, commit) => {
         renderTooltipContent(commit);
         updateTooltipVisibility(true);
+        updateTooltipPosition(event);
       })
       .on('mouseleave', () => {
         updateTooltipVisibility(false);
@@ -199,6 +200,7 @@ function renderCommitInfo(data, commits) {
 
    function updateTooltipVisibility(isVisible) {
     const tooltip = document.getElementById('commit-tooltip');
-    tooltip.hidden = !isVisible;
+    tooltip.style.left = `${event.clientX}px`;
+    tooltip.style.top = `${event.clientY}px`;
   }
 
