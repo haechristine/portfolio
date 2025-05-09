@@ -89,3 +89,5 @@ function renderCommitInfo(data, commits) {
     dl.append('dt').text('Most active period');
     dl.append('dd').text(maxPeriod || 'N/A');
   }
+
+  renderCommitInfo(data, commits);
