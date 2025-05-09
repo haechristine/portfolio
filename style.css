@@ -372,4 +372,24 @@ path.selected {
   --color: oklch(60% 45% 0);
 }
 
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* same layout */
+  text-align: center;
+}
 
+.stats dt {
+  grid-row: 1;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6c757d;
+  margin-bottom: 0.5em;
+}
+
+.stats dd {
+  grid-row: 2;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+}
