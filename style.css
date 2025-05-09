@@ -372,20 +372,4 @@ path.selected {
   --color: oklch(60% 45% 0);
 }
 
-.stats {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.25em 1em;
-  margin-bottom: 2em;
-  font-size: 0.95rem;
-}
 
-.stats dt {
-  font-weight: bold;
-  color: #444;
-}
-
-.stats dd {
-  margin: 0;
-  color: #222;
-}
