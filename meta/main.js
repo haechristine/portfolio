@@ -200,7 +200,11 @@ function renderCommitInfo(data, commits) {
 
    function updateTooltipVisibility(isVisible) {
     const tooltip = document.getElementById('commit-tooltip');
+    tooltip.hidden = !isVisible;
+  }
+
+  function updateTooltipPosition(event) {
+    const tooltip = document.getElementById('commit-tooltip');
     tooltip.style.left = `${event.clientX}px`;
     tooltip.style.top = `${event.clientY}px`;
   }
-
