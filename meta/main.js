@@ -120,8 +120,6 @@ function renderCommitInfo(data, commits) {
         height: height - margin.top - margin.bottom,
       };
 
-    const dots = svg.append('g').attr('class', 'dots');
-
     xScale.range([usableArea.left, usableArea.right]);
 
     const yScale = d3.scaleLinear().domain([0,24]);
@@ -148,7 +146,7 @@ function renderCommitInfo(data, commits) {
         const hour = i; // i corresponds to the tick index, representing the hour of the day
         return colorScale(hour); // Assign color based on the time of day
     });
-    
+
     // Create the axes
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3
@@ -165,6 +163,8 @@ function renderCommitInfo(data, commits) {
     .append('g')
     .attr('transform', `translate(${usableArea.left}, 0)`)
     .call(yAxis);
+
+    const dots = svg.append('g').attr('class', 'dots');
 
     dots
     .selectAll('circle')
