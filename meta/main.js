@@ -157,7 +157,7 @@ function renderCommitInfo(data, commits) {
     const rScale = d3
                     .scaleSqrt() // Change only this line
                     .domain([minLines, maxLines])
-                    .range([2, 30]);
+                    .range([10, 30]);
     dots
     .selectAll('circle')
     .data(sortedCommits)
@@ -276,7 +276,3 @@ function renderCommitInfo(data, commits) {
           `;
     }
   }
-//   function createBrushSelector(svg) {
-//     svg.call(d3.brush());
-//     svg.selectAll('.dots, .overlay ~ *').raise();
-//   }
