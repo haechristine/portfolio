@@ -36,7 +36,7 @@ async function loadData() {
         Object.defineProperty(ret, 'lines', {
           value: lines,  // The original lines array
           writable: false,  // Make it non-writable
-          enumerable: false,  // Don't show up in console logs
+          enumerable: true,  // Don't show up in console logs
           configurable: false,  // Don't allow reconfiguring this property
         });
   
