@@ -178,8 +178,31 @@ function renderCommitInfo(data, commits) {
         d3.select(event.currentTarget).style('fill-opacity', 0.7);
         updateTooltipVisibility(false);
    });
+     // Define helper function FIRST (so it's clear it's being used below)
+    function isCommitSelected(selection, commit) {
+        if (!selection) return false;
+        const [x0, y0] = selection[0];
+        const [x1, y1] = selection[1];
+        const x = xScale(commit.datetime);
+        const y = yScale(commit.hourFrac);
+        return x0 <= x && x <= x1 && y0 <= y && y <= y1;
+    }
 
-   createBrushSelector(svg);
+    // Brush handler
+    function brushed(event) {
+        const selection = event.selection;
+        d3.selectAll('circle').classed('selected', (d) =>
+        isCommitSelected(selection, d)
+        );
+     }
+
+    // Set up brush and attach to svg
+    svg.call(d3.brush().on('start brush end', brushed));
+
+    // Raise dots so they are above brush overlay
+    svg.selectAll('.dots, .overlay ~ *').raise();
+
+    //    createBrushSelector(svg);
 }
    renderScatterPlot(data, commits);
 
@@ -207,6 +230,7 @@ function renderCommitInfo(data, commits) {
     tooltip.style.top = `${event.clientY}px`;
   }
 
-  function createBrushSelector(svg) {
-    svg.call(d3.brush());
-  }
+//   function createBrushSelector(svg) {
+//     svg.call(d3.brush());
+//     svg.selectAll('.dots, .overlay ~ *').raise();
+//   }
