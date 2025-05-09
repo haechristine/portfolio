@@ -185,7 +185,7 @@ function renderCommitInfo(data, commits) {
         const y = yScale(commit.hourFrac);
         return x0 <= x && x <= x1 && y0 <= y && y <= y1;
     }
-    function renderSelectionCount(selection) {
+    function renderSelectionCount(selection,commits) {
         const selectedCommits = selection
           ? commits.filter((d) => isCommitSelected(selection, d))
           : [];
@@ -203,7 +203,7 @@ function renderCommitInfo(data, commits) {
         d3.selectAll('circle').classed('selected', (d) =>
         isCommitSelected(selection,d)
         );
-        renderSelectionCount(selection);
+        renderSelectionCount(selection,commits);
         renderLanguageBreakdown(selection,commits);
      }
 
