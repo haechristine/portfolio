@@ -157,7 +157,7 @@ function renderCommitInfo(data, commits) {
     const rScale = d3
                     .scaleSqrt() // Change only this line
                     .domain([minLines, maxLines])
-                    .range([10, 30]);
+                    .range([5, 30]);
     dots
     .selectAll('circle')
     .data(sortedCommits)
