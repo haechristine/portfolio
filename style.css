@@ -404,3 +404,50 @@ path.selected {
 .gridlines path {
   display: none; /* Hides the axis line */
 }
+
+/* Styling for the tooltip */
+dl.info {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Labels on the 1st column, values on the 2nd */
+  gap: 5px;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+dl.info dt {
+  font-weight: normal;
+  color: #6c757d; /* Lighter color for labels */
+  margin: 0;
+}
+
+dl.info dd {
+  margin: 0;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: none; /* Prevent tooltip from interfering with mouse events */
+  z-index: 1000;
+  width: auto;
+  max-width: 300px; /* Optional: you can control the max width */
+}
+
+/* Hover effect on circles (data points) */
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+  cursor: pointer; /* Optionally change cursor to pointer to indicate interactivity */
+}
