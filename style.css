@@ -375,6 +375,7 @@ path.selected {
 .stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* same layout */
+  gap: 1em; /* Add spacing between columns and rows */
   text-align: center;
 }
 
