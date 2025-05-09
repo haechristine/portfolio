@@ -127,6 +127,11 @@ function renderCommitInfo(data, commits) {
     const yScale = d3.scaleLinear().domain([0,24]);
     yScale.range([usableArea.bottom, usableArea.top]);
 
+    const colorScale = d3
+    .scaleLinear()
+    .domain([0, 6, 12, 18, 24]) // Break into parts: night, morning, afternoon, evening
+    .range(['blue', 'lightblue', 'orange', 'darkorange', 'blue']);
+
     // Add gridlines BEFORE the axes
     const gridlines = svg
     .append('g')
@@ -135,11 +140,21 @@ function renderCommitInfo(data, commits) {
 
     // Create gridlines as an axis with no labels and full-width ticks
     gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
+
+    // Color gridlines based on the time of day
+    gridlines
+    .selectAll('line')
+    .style('stroke', (d, i) => {
+        const hour = i; // i corresponds to the tick index, representing the hour of the day
+        return colorScale(hour); // Assign color based on the time of day
+    });
+    
     // Create the axes
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3
-    .axisLeft(yScale)
-    .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');    // Add X axis
+                    .axisLeft(yScale)
+                    .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');    
+    // Add X axis
     svg
     .append('g')
     .attr('transform', `translate(0, ${usableArea.bottom})`)
