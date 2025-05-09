@@ -98,6 +98,7 @@ function renderCommitInfo(data, commits) {
     const width = 1000;
     const height = 600;
     const margin = { top: 10, right: 10, bottom: 30, left: 20 };
+    const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
 
     const svg = d3
     .select('#chart')
@@ -153,11 +154,13 @@ function renderCommitInfo(data, commits) {
 
     const dots = svg.append('g').attr('class', 'dots');
     const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
-    const rScale = d3.scaleLinear().domain([minLines, maxLines]).range([2, 30]); // adjust these values based on your experimentation
-
+    const rScale = d3
+                    .scaleSqrt() // Change only this line
+                    .domain([minLines, maxLines])
+                    .range([2, 30]);
     dots
     .selectAll('circle')
-    .data(commits)
+    .data(sortedCommits)
     .join('circle')
     .attr('cx', (d) => xScale(d.datetime))
     .attr('cy', (d) => yScale(d.hourFrac))
