@@ -91,6 +91,19 @@ function renderCommitInfo(data, commits) {
 
   renderCommitInfo(data, commits);
 
+  //added to global scope
+
+  let xScale, yScale;
+
+  function isCommitSelected(selection, commit) {
+    if (!selection || !selection[0] || !selection[1]) return false;
+    const [x0, y0] = selection[0];
+    const [x1, y1] = selection[1];
+    const x = xScale(commit.datetime);
+    const y = yScale(commit.hourFrac);
+    return x0 <= x && x <= x1 && y0 <= y && y <= y1;
+}
+
   function renderScatterPlot(data, commits) {
     // Put all the JS code of Steps inside this function
     const width = 1000;
@@ -104,12 +117,17 @@ function renderCommitInfo(data, commits) {
     .attr('viewBox', `0 0 ${width} ${height}`)
     .style('overflow', 'visible');
 
-    const xScale = d3
+    xScale = d3
     .scaleTime()
     .domain(d3.extent(commits, (d) => d.datetime))
-    .range([0, width])
+    .range([usableArea.left, usableArea.right]);
     .nice();
 
+    yScale = d3
+    .scaleLinear()
+    .domain([0, 24])
+    .range([usableArea.bottom, usableArea.top]);
+    
     const usableArea = {
         top: margin.top,
         right: width - margin.right,
@@ -118,11 +136,6 @@ function renderCommitInfo(data, commits) {
         width: width - margin.left - margin.right,
         height: height - margin.top - margin.bottom,
       };
-
-    xScale.range([usableArea.left, usableArea.right]);
-
-    const yScale = d3.scaleLinear().domain([0,24]);
-    yScale.range([usableArea.bottom, usableArea.top]);
 
     // Add gridlines BEFORE the axes
     const gridlines = svg
@@ -177,14 +190,14 @@ function renderCommitInfo(data, commits) {
         updateTooltipVisibility(false);
    });
      // Define helper function FIRST (so it's clear it's being used below)
-    function isCommitSelected(selection, commit) {
-        if (!selection || !selection[0] || !selection[1]) return false;
-        const [x0, y0] = selection[0];
-        const [x1, y1] = selection[1];
-        const x = xScale(commit.datetime);
-        const y = yScale(commit.hourFrac);
-        return x0 <= x && x <= x1 && y0 <= y && y <= y1;
-    }
+    // function isCommitSelected(selection, commit) {
+    //     if (!selection || !selection[0] || !selection[1]) return false;
+    //     const [x0, y0] = selection[0];
+    //     const [x1, y1] = selection[1];
+    //     const x = xScale(commit.datetime);
+    //     const y = yScale(commit.hourFrac);
+    //     return x0 <= x && x <= x1 && y0 <= y && y <= y1;
+    // }
     function renderSelectionCount(selection,commits) {
         const selectedCommits = selection
           ? commits.filter((d) => isCommitSelected(selection, d))
@@ -212,8 +225,6 @@ function renderCommitInfo(data, commits) {
 
     // Raise dots so they are above brush overlay
     svg.selectAll('.dots, .overlay ~ *').raise();
-
-    //    createBrushSelector(svg);
 }
    renderScatterPlot(data, commits);
 
