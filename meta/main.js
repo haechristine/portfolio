@@ -204,7 +204,7 @@ function renderCommitInfo(data, commits) {
         isCommitSelected(selection,d)
         );
         renderSelectionCount(selection);
-        renderLanguageBreakdown(selection);
+        renderLanguageBreakdown(selection,commits);
      }
 
     // Set up brush and attach to svg
@@ -241,7 +241,7 @@ function renderCommitInfo(data, commits) {
     tooltip.style.top = `${event.clientY}px`;
   }
 
-  function renderLanguageBreakdown(selection) {
+  function renderLanguageBreakdown(selection,commits) {
     const selectedCommits = selection
       ? commits.filter((d) => isCommitSelected(selection, d))
       : [];
