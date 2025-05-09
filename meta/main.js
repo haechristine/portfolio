@@ -128,8 +128,9 @@ function renderCommitInfo(data, commits) {
     yScale.range([usableArea.bottom, usableArea.top]);
     // Create the axes
     const xAxis = d3.axisBottom(xScale);
-    const yAxis = d3.axisLeft(yScale);
-    // Add X axis
+    const yAxis = d3
+    .axisLeft(yScale)
+    .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');    // Add X axis
     svg
     .append('g')
     .attr('transform', `translate(0, ${usableArea.bottom})`)
