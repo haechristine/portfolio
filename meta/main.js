@@ -97,6 +97,7 @@ function renderCommitInfo(data, commits) {
     // Put all the JS code of Steps inside this function
     const width = 1000;
     const height = 600;
+    const margin = { top: 10, right: 10, bottom: 30, left: 20 };
 
     const svg = d3
     .select('#chart')
@@ -110,9 +111,35 @@ function renderCommitInfo(data, commits) {
     .range([0, width])
     .nice();
 
-    const yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
+    const usableArea = {
+        top: margin.top,
+        right: width - margin.right,
+        bottom: height - margin.bottom,
+        left: margin.left,
+        width: width - margin.left - margin.right,
+        height: height - margin.top - margin.bottom,
+      };
 
     const dots = svg.append('g').attr('class', 'dots');
+
+    xScale.range([usableArea.left, usableArea.right]);
+
+    const yScale = d3.scaleLinear().domain([0,24]);
+    yScale.range([usableArea.bottom, usableArea.top]);
+    // Create the axes
+    const xAxis = d3.axisBottom(xScale);
+    const yAxis = d3.axisLeft(yScale);
+    // Add X axis
+    svg
+    .append('g')
+    .attr('transform', `translate(0, ${usableArea.bottom})`)
+    .call(xAxis);
+
+    // Add Y axis
+    svg
+    .append('g')
+    .attr('transform', `translate(${usableArea.left}, 0)`)
+    .call(yAxis);
 
     dots
     .selectAll('circle')
