@@ -178,7 +178,7 @@ function renderCommitInfo(data, commits) {
    });
      // Define helper function FIRST (so it's clear it's being used below)
     function isCommitSelected(selection, commit) {
-        if (!selection) return false;
+        if (!selection || !selection[0] || !selection[1]) return false;
         const [x0, y0] = selection[0];
         const [x1, y1] = selection[1];
         const x = xScale(commit.datetime);
