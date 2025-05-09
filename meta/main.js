@@ -120,7 +120,7 @@ function renderCommitInfo(data, commits) {
     xScale = d3
     .scaleTime()
     .domain(d3.extent(commits, (d) => d.datetime))
-    .range([usableArea.left, usableArea.right]);
+    .range([usableArea.left, usableArea.right])
     .nice();
 
     yScale = d3
