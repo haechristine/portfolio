@@ -187,13 +187,25 @@ function renderCommitInfo(data, commits) {
         const y = yScale(commit.hourFrac);
         return x0 <= x && x <= x1 && y0 <= y && y <= y1;
     }
-
+    function renderSelectionCount(selection) {
+        const selectedCommits = selection
+          ? commits.filter((d) => isCommitSelected(selection, d))
+          : [];
+      
+        const countElement = document.querySelector('#selection-count');
+        countElement.textContent = `${
+          selectedCommits.length || 'No'
+        } commits selected`;
+      
+        return selectedCommits;
+      }
     // Brush handler
     function brushed(event) {
         const selection = event.selection;
         d3.selectAll('circle').classed('selected', (d) =>
-        isCommitSelected(selection, d)
+        isCommitSelected(selection,d)
         );
+        renderSelectionCount(selection);
      }
 
     // Set up brush and attach to svg
@@ -229,6 +241,7 @@ function renderCommitInfo(data, commits) {
     tooltip.style.left = `${event.clientX}px`;
     tooltip.style.top = `${event.clientY}px`;
   }
+
 
 //   function createBrushSelector(svg) {
 //     svg.call(d3.brush());
