@@ -178,6 +178,8 @@ function renderCommitInfo(data, commits) {
         d3.select(event.currentTarget).style('fill-opacity', 0.7);
         updateTooltipVisibility(false);
    });
+
+   createBrushSelector(svg);
 }
    renderScatterPlot(data, commits);
 
@@ -203,4 +205,8 @@ function renderCommitInfo(data, commits) {
     const tooltip = document.getElementById('commit-tooltip');
     tooltip.style.left = `${event.clientX}px`;
     tooltip.style.top = `${event.clientY}px`;
+  }
+
+  function createBrushSelector(svg) {
+    svg.call(d3.brush());
   }
