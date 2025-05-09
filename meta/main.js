@@ -176,11 +176,12 @@ function renderCommitInfo(data, commits) {
     .attr('fill', 'steelblue')
     .on('mouseenter', (event, commit) => {
         renderTooltipContent(commit);
+        updateTooltipVisibility(true);
       })
       .on('mouseleave', () => {
-        // TODO: Hide the tooltip
+        updateTooltipVisibility(false);
    });
-   
+}
    renderScatterPlot(data, commits);
 
    function renderTooltipContent(commit) {
@@ -194,6 +195,10 @@ function renderCommitInfo(data, commits) {
     date.textContent = commit.datetime?.toLocaleString('en', {
       dateStyle: 'full',
     });
+   }
+
+   function updateTooltipVisibility(isVisible) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.hidden = !isVisible;
   }
 
-  renderTooltipContent(data, commits);

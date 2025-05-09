@@ -451,3 +451,14 @@ circle:hover {
   transform: scale(1.5);
   cursor: pointer; /* Optionally change cursor to pointer to indicate interactivity */
 }
+
+dl.info {
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
