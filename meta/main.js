@@ -116,17 +116,6 @@ function renderCommitInfo(data, commits) {
     .append('svg')
     .attr('viewBox', `0 0 ${width} ${height}`)
     .style('overflow', 'visible');
-
-    xScale = d3
-    .scaleTime()
-    .domain(d3.extent(commits, (d) => d.datetime))
-    .range([usableArea.left, usableArea.right])
-    .nice();
-
-    yScale = d3
-    .scaleLinear()
-    .domain([0, 24])
-    .range([usableArea.bottom, usableArea.top]);
     
     const usableArea = {
         top: margin.top,
@@ -136,6 +125,17 @@ function renderCommitInfo(data, commits) {
         width: width - margin.left - margin.right,
         height: height - margin.top - margin.bottom,
       };
+
+      xScale = d3
+      .scaleTime()
+      .domain(d3.extent(commits, (d) => d.datetime))
+      .range([usableArea.left, usableArea.right])
+      .nice();
+  
+      yScale = d3
+      .scaleLinear()
+      .domain([0, 24])
+      .range([usableArea.bottom, usableArea.top]);
 
     // Add gridlines BEFORE the axes
     const gridlines = svg
