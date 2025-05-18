@@ -189,15 +189,7 @@ function renderCommitInfo(data, commits) {
         d3.select(event.currentTarget).style('fill-opacity', 0.7);
         updateTooltipVisibility(false);
    });
-     // Define helper function FIRST (so it's clear it's being used below)
-    // function isCommitSelected(selection, commit) {
-    //     if (!selection || !selection[0] || !selection[1]) return false;
-    //     const [x0, y0] = selection[0];
-    //     const [x1, y1] = selection[1];
-    //     const x = xScale(commit.datetime);
-    //     const y = yScale(commit.hourFrac);
-    //     return x0 <= x && x <= x1 && y0 <= y && y <= y1;
-    // }
+
     function renderSelectionCount(selection,commits) {
         const selectedCommits = selection
           ? commits.filter((d) => isCommitSelected(selection, d))
