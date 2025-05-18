@@ -6,7 +6,8 @@
 		  "src": "/portfolio/images/textualelement.png",
 		  "alt": "Review Length Vs. Rating"
 		},
-		"description": "Analyzing textual elements of a recipe to determine the magnitude of impact on user engagement and ratings. <a href=\"https://haechristine.github.io/TextualElementImpact/\" target=\"_blank\"> Report Link</a>"
+		"description": "Analyzing textual elements of a recipe to determine the magnitude of impact on user engagement and ratings. <a href=\"https://haechristine.github.io/TextualElementImpact/\" target=\"_blank\"> Report Link</a>",
+		"url": "https://haechristine.github.io/TextualElementImpact/"
 	  },
 	  {
 		"title": "Predicting Median Salary Across the United States",
