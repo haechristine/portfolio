@@ -480,3 +480,28 @@ dl.info[hidden]:not(:hover, :focus-within) {
 circle.selected {
   fill: #ff6b6b;
 }
+
+.commit-controls {
+  display: flex;
+  align-items: baseline;
+  flex: 1;
+  margin-bottom: 1em;
+}
+
+.commit-controls time {
+  margin-left: auto;
+}
+
+.commit-controls label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.commit-controls input[type="range"] {
+  flex: 1;
+  width: 100%;
+  min-width: 0; /* allow shrinking inside flex */
+  margin: 0; /* remove default margin */
+}

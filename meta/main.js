@@ -277,3 +277,34 @@ function renderCommitInfo(data, commits) {
           `;
     }
   }
+
+  let commitProgress = 100;
+
+  let timeScale = d3
+  .scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime),
+  ])
+  .range([0, 100])
+  .clamp(true);
+
+let commitMaxTime = timeScale.invert(commitProgress);
+function onTimeSliderChange() {
+  const slider = document.getElementById('commit-progress');
+  const timeDisplay = document.getElementById('commit-time');
+
+  commitProgress = +slider.value;
+  commitMaxTime = timeScale.invert(commitProgress);
+  timeDisplay.textContent = commitMaxTime.toLocaleString(undefined, {
+    dateStyle: "long",
+    timeStyle: "short"
+  });
+}
+
+// Attach event listener
+document.getElementById('commit-progress')
+  .addEventListener('input', onTimeSliderChange);
+
+// Initialize on page load
+onTimeSliderChange();
