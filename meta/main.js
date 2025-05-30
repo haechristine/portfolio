@@ -308,3 +308,10 @@ document.getElementById('commit-progress')
 
 // Initialize on page load
 onTimeSliderChange();
+
+console.log(d3.min(commits, d => d.datetime));
+console.log(d3.max(commits, d => d.datetime));
+console.log("Slider 0:", timeScale.invert(0));
+console.log("Slider 100:", timeScale.invert(100));
+console.log("Min commit:", d3.min(commits, d => d.datetime));
+console.log("Max commit:", d3.max(commits, d => d.datetime));
