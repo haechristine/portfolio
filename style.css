@@ -445,7 +445,7 @@ circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
-  
+
   @starting-style {
     r: 0;
   }
@@ -513,3 +513,21 @@ circle.selected {
   font-size: 0.9rem;
 }
 
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+  }
+
+  dd {
+    grid-column: 2;
+  }
+}
