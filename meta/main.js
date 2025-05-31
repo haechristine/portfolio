@@ -41,8 +41,8 @@ async function loadData() {
         });
   
         return ret;
-      });
-  }
+      }).sort((a, b) => d3.ascending(a.datetime, b.datetime));
+    }
    
 let data = await loadData();
 let commits = processCommits(data);
@@ -219,7 +219,10 @@ function renderCommitInfo(data, commits) {
     svg.selectAll('.dots, .overlay ~ *').raise();
 }
    renderScatterPlot(data, commits);
-
+   d3.selectAll('#scatter-story .step')
+   .data(commits)
+   .text(d => `Commit on ${d.datetime.toLocaleDateString()}`);
+ 
    function renderTooltipContent(commit) {
     const link = document.getElementById('commit-link');
     const date = document.getElementById('commit-date');
@@ -441,3 +444,32 @@ d3.select('#scatter-story')
 		Then I looked over all I had made, and I saw that it was very good.
 	`,
   );
+
+  import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
+
+  function onStepEnter(response) {
+    const commit = response.element.__data__;
+    if (!commit?.datetime) return;
+  
+    commitProgress = timeScale(commit.datetime);
+    document.getElementById('commit-progress').value = commitProgress;
+  
+    commitMaxTime = commit.datetime;
+    filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  
+    updateScatterPlot(data, filteredCommits);
+    updateFileDisplay(filteredCommits);
+    updateStatsDisplay(filteredCommits);
+  }
+  
+  const scroller = scrollama();
+  
+  scroller
+    .setup({
+      container: '#scrolly-1',
+      step: '#scrolly-1 .step',
+      offset: 0.5,
+      debug: false,
+    })
+    .onStepEnter(onStepEnter);
+  
