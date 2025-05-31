@@ -49,7 +49,7 @@ let commits = processCommits(data);
 
 function renderCommitInfo(data, commits) {
     const dl = d3.select('#stats').append('dl').attr('class', 'stats');
-  
+
     // Total lines of code
     dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
     dl.append('dd').text(data.length);
@@ -297,7 +297,7 @@ let files = d3
   .map(([name, lines]) => {
     return { name, lines };
   });
-
+  
 function onTimeSliderChange() {
   const slider = document.getElementById('commit-progress');
   const timeDisplay = document.getElementById('commit-time');
