@@ -374,9 +374,12 @@ path.selected {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* same layout */
-  gap: 1em; /* Add spacing between columns and rows */
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1em;
   text-align: center;
+  width: 100%;
+  margin: 1em 0;
+  box-sizing: border-box;
 }
 
 .stats dt {
@@ -554,7 +557,7 @@ circle.selected {
   margin-left: 0;
 }
 
-#scrolly-1 {
+#scrolly-1, #scrolly-2 {
   position: relative;
   display: flex;
   gap: 1rem;
@@ -564,44 +567,14 @@ circle.selected {
   }
 }
 
-#scatter-story {
+#scatter-story,#files-story {
   position: relative;
 }
 
-#scatter-plot {
+#scatter-plot, #files-plot {
   position: sticky;
   top: 0;
   left: 0;
   bottom: auto;
   height: 50vh;
-}
-
-#scrolly-2 {
-  display: flex;
-  gap: 2rem;
-  align-items: start;
-  margin-bottom: 5rem;
-}
-
-#files-story {
-  width: 30%;
-  position: sticky;
-  top: 2rem;
-  height: fit-content;
-}
-
-#files-plot {
-  position: sticky;
-  top: 0;
-  left: 0;
-  bottom: auto;
-  height: 50vh;
-}
-
-#files-story .step {
-  margin: 4rem 0;
-  padding: 1.5rem;
-  background: #f9f9f9;
-  border-left: 4px solid steelblue;
-  font-size: 1rem;
 }
