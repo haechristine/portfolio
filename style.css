@@ -591,7 +591,11 @@ circle.selected {
 }
 
 #files-plot {
-  width: 70%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
 }
 
 #files-story .step {

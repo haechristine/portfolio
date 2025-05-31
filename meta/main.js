@@ -493,7 +493,7 @@ d3.select('#scatter-story')
 
   import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
 
-  function onStepEnter(response) {
+  function onScatterStepEnter(response) {
     const commit = response.element.__data__;
     if (!commit?.datetime) return;
   
@@ -504,18 +504,67 @@ d3.select('#scatter-story')
     filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
   
     updateScatterPlot(data, filteredCommits);
-    updateFileDisplay(filteredCommits);
-    updateStatsDisplay(filteredCommits);
+    updateStatsDisplay(filteredCommits); // optional
   }
   
-  const scroller = scrollama();
+  function onFilesStepEnter(response) {
+    const commit = response.element.__data__;
+    if (!commit?.datetime) return;
   
-  scroller
-    .setup({
-      container: '#scrolly-1',
-      step: '#scrolly-1 .step',
-      offset: 0.5,
-      debug: false,
-    })
-    .onStepEnter(onStepEnter);
+    commitProgress = timeScale(commit.datetime);
+    document.getElementById('commit-progress').value = commitProgress;
+  
+    commitMaxTime = commit.datetime;
+    filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  
+    updateFileDisplay(filteredCommits);
+    updateStatsDisplay(filteredCommits); // optional
+  }
+  
+  const scatterScroller = scrollama();
+scatterScroller
+  .setup({
+    container: '#scrolly-1',
+    step: '#scatter-story .step',
+    offset: 0.5,
+    debug: false,
+  })
+  .onStepEnter(onScatterStepEnter);
+
+const filesScroller = scrollama();
+filesScroller
+  .setup({
+    container: '#scrolly-2',
+    step: '#files-story .step',
+    offset: 0.5,
+    debug: false,
+  })
+  .onStepEnter(onFilesStepEnter);
+
+
+  // function onStepEnter(response) {
+  //   const commit = response.element.__data__;
+  //   if (!commit?.datetime) return;
+  
+  //   commitProgress = timeScale(commit.datetime);
+  //   document.getElementById('commit-progress').value = commitProgress;
+  
+  //   commitMaxTime = commit.datetime;
+  //   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  
+  //   updateScatterPlot(data, filteredCommits);
+  //   updateFileDisplay(filteredCommits);
+  //   updateStatsDisplay(filteredCommits);
+  // }
+  
+  // const scroller = scrollama();
+  
+  // scroller
+  //   .setup({
+  //     container: '#scrolly-1',
+  //     step: '#scrolly-1 .step',
+  //     offset: 0.5,
+  //     debug: false,
+  //   })
+  //   .onStepEnter(onStepEnter);
   
