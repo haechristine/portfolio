@@ -539,7 +539,7 @@ circle.selected {
   width: 8px;
   height: 8px;
   margin: 1px;
-  background-color: steelblue;
+  background-color: var(--color);
   display: inline-block;
   border-radius: 1px;
 }

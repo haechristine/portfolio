@@ -297,7 +297,8 @@ let files = d3
   .map(([name, lines]) => {
     return { name, lines };
   });
-  
+  let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
   function updateStatsDisplay(filteredCommits) {
     const statsContainer = d3.select('#stats');
     statsContainer.selectAll('*').remove(); // Clear previous stats
@@ -412,5 +413,6 @@ function updateFileDisplay(filteredCommits){
     .selectAll('div')
     .data((d) => d.lines)
     .join('div')
-    .attr('class', 'loc'); 
+    .attr('class', 'loc')
+    .attr('style', (d) => `--color: ${colors(d.type)}`);
 }
