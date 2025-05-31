@@ -298,6 +298,16 @@ let files = d3
     return { name, lines };
   });
   
+  function updateStatsDisplay(filteredCommits) {
+    const statsContainer = d3.select('#stats');
+    statsContainer.selectAll('*').remove(); // Clear previous stats
+  
+    renderCommitInfo(
+      filteredCommits.flatMap((d) => d.lines),
+      filteredCommits
+    );
+  }
+  
 function onTimeSliderChange() {
   const slider = document.getElementById('commit-progress');
   const timeDisplay = document.getElementById('commit-time');
@@ -312,6 +322,7 @@ function onTimeSliderChange() {
   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
   updateScatterPlot(data, filteredCommits);
   updateFileDisplay(filteredCommits);
+  updateStatsDisplay(filteredCommits); // ✅ Add this line
 }
 
 // Attach event listener
@@ -371,6 +382,9 @@ function updateScatterPlot(data, commits) {
 }
 
 function updateFileDisplay(filteredCommits){
+  let lines = filteredCommits.flatMap((d) => d.lines);
+  let files = d3.groups(lines, (d) => d.file).map(([name, lines]) => ({ name, lines }));
+
   let filesContainer = d3
   .select('#files')
   .selectAll('div')
