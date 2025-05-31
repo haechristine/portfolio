@@ -500,17 +500,20 @@ circle.selected {
 }
 
 .commit-controls input[type="range"] {
-  width: 100%;
+  flex: 1;
   appearance: auto;
   background: lightgray;
   border: 1px solid #ccc;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
+
 .commit-controls time {
   align-self: flex-end;
   margin-top: 0.25rem;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 #files {
@@ -530,4 +533,23 @@ circle.selected {
   dd {
     grid-column: 2;
   }
+}
+
+.loc {
+  width: 8px;
+  height: 8px;
+  margin: 1px;
+  background-color: steelblue;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.file-lines {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
 }
