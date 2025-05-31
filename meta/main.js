@@ -47,6 +47,23 @@ async function loadData() {
 let data = await loadData();
 let commits = processCommits(data);
 
+function formatCommitHTML(commit) {
+  const date = new Date(commit.datetime).toLocaleString('en', {
+    dateStyle: 'full',
+    timeStyle: 'short'
+  });
+
+  const commitURL = commit.url || '#';
+  const linesEdited = commit.lines?.length || 0;
+  const filesEdited = d3.groups(commit.lines, d => d.file).length;
+
+  return `
+    <p>On ${date}, I made <a href="${commitURL}" target="_blank">another glorious commit</a>.</p>
+    <p>I edited ${linesEdited} lines across ${filesEdited} files. Then I looked over all I had made, and I saw that it was very good.</p>
+  `;
+}
+
+
 function renderCommitInfo(data, commits) {
     const dl = d3.select('#stats').append('dl').attr('class', 'stats');
 
@@ -222,6 +239,10 @@ function renderCommitInfo(data, commits) {
    d3.selectAll('#scatter-story .step')
    .data(commits)
    .text(d => `Commit on ${d.datetime.toLocaleDateString()}`);
+
+   d3.selectAll('#files-story .step')
+  .data(commits)
+  .text(d => `Commit on ${d.datetime.toLocaleDateString()}`);
  
    function renderTooltipContent(commit) {
     const link = document.getElementById('commit-link');
@@ -421,6 +442,31 @@ function updateFileDisplay(filteredCommits){
 }
 
 d3.select('#scatter-story')
+  .selectAll('.step')
+  .data(commits)
+  .join('div')
+  .attr('class', 'step')
+  .html(
+    (d, i) => `
+		On ${d.datetime.toLocaleString('en', {
+      dateStyle: 'full',
+      timeStyle: 'short',
+    })},
+		I made <a href="${d.url}" target="_blank">${
+      i > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'
+    }</a>.
+		I edited ${d.totalLines} lines across ${
+      d3.rollups(
+        d.lines,
+        (D) => D.length,
+        (d) => d.file,
+      ).length
+    } files.
+		Then I looked over all I had made, and I saw that it was very good.
+	`,
+  );
+
+  d3.select('#files-story')
   .selectAll('.step')
   .data(commits)
   .join('div')

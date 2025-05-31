@@ -575,3 +575,29 @@ circle.selected {
   bottom: auto;
   height: 50vh;
 }
+
+#scrolly-2 {
+  display: flex;
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 5rem;
+}
+
+#files-story {
+  width: 30%;
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+#files-plot {
+  width: 70%;
+}
+
+#files-story .step {
+  margin: 4rem 0;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-left: 4px solid steelblue;
+  font-size: 1rem;
+}
