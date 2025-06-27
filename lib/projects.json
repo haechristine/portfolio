@@ -54,13 +54,13 @@
 		"description": "This website provides an interactive map visualization of bike traffic in the Boston area, focused on different times of the day.<a href=\"https://haechristine.github.io/wheelie_good_time/\" target=\"_blank\"> Website</a>"
 	  },
 	  {
-		"title": "To Be Completed...",
-		"year": "2023",
+		"title": "Glycograph.",
+		"year": "2025",
 		"image": {
-		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
-		  "alt": ""
+		  "src": "/portfolio/images/glycograph.png",
+		  "alt": "Image of Glycograph"
 		},
-		"description": "To Be Completed..."
+		"description": "This project explores how daily glucose trends differ among individuals with normal, prediabetic, and diabetic glucose levels. Through interactive visualizations and physiological data, you'll learn how blood sugar behaves throughout the day, what factors influence it, and how it relates to overall health."
 	  },
 	  {
 		"title": "To Be Completed...",
