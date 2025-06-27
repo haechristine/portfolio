@@ -1,7 +1,8 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-let projects = await fetchJSON('../lib/projects.json'); // now it's mutable
+let projects = await fetchJSON('../lib/projects.json');
+projects.sort((a, b) => Number(b.year) - Number(a.year)); // sort by year, newest first
 const projectsContainer = document.querySelector('.projects');
 
 const titleElement = document.querySelector('.projects-title');
@@ -12,6 +13,7 @@ if (titleElement) {
 let selectedIndex = -1; 
 let query = '';         
 
+projects.sort((a, b) => Number(b.year) - Number(a.year));
 renderProjects(projects, projectsContainer, 'h2');
 renderPieChart(projects); // call the pie chart on initial load
 
