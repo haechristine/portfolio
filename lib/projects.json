@@ -9,15 +9,6 @@
 		"description": "Analyzing textual elements of a recipe to determine the magnitude of impact on user engagement and ratings. <a href=\"https://haechristine.github.io/TextualElementImpact/\" target=\"_blank\"> Report Link</a>"
 	  },
 	  {
-		"title": "Predicting Median Salary Across the United States",
-		"year": "2025",
-		"image": {
-		  "src": "/portfolio/images/predictsalary.png",
-		  "alt": "Distribution of Salaries"
-		},
-		"description": "As students are actively searching for their first job, one of the most sought-after questions is: How much will the salary be? Individuals seek higher education in chances to secure a job with a higher salary, and with the world becoming more technologically driven, certain jobs tend to be on the higher salary spectrum. In this report, we delve deep into LinkedIn job postings to analyze job listing characteristics (location, industry, experience, work type, and company) that can most accurately predict the median annual salary.<a href=\"https://docs.google.com/document/d/1zL8juntzyIT0aNQo9pd8I1kMIus0G-R6Ki4x7z06X7Q/edit?usp=sharing\" target=\"_blank\"> Report Link</a>"
-	  },
-	  {
 		"title": "Hunter Industries Specification Market Analysis",
 		"year": "2025",
 		"image": {
@@ -25,6 +16,33 @@
 		  "alt": "Hunter Industries Logo"
 		},
 		"description": "In order to better understand Hunter's market share, we needed to find out more about its specification rate. Since we lacked crucial information about the overall size of the specification market, my role was to develop a method for more accurately estimating the monetary value of Hunter's specification rate within the irrigation sector. Specifically, I focused on projects from 2023 valued at $1 million or more as this was the first full year of \"normal\" data post-pandemic.<a href=\"https://github.com/haechristine/hunterspecrates\" target=\"_blank\"> Report Link</a>"
+	  },
+	  {
+		"title": "Glycograph",
+		"year": "2025",
+		"image": {
+		  "src": "/portfolio/images/glycograph.png",
+		  "alt": "Image of Glycograph"
+		},
+		"description": "This project explores how daily glucose trends differ among individuals with normal, prediabetic, and diabetic glucose levels. Through interactive visualizations and physiological data, you'll learn how blood sugar behaves throughout the day, what factors influence it, and how it relates to overall health. <a href=\"https://d4zhu.github.io/Glycograph/\" target=\"_blank\"> Project Link</a>"
+	  },
+	  {
+		"title": "Airbnb Data Mining Challenge",
+		"year": "2025",
+		"image": {
+		  "src": "/portfolio/images/hunter.png",
+		  "alt": "Airbnb Logo"
+		},
+		"description": "Placed in the top 20 out of 100+ participants in an Airbnb price prediction challenge by engineering features, handling missing data, and tuning models to minimize RMSE. <a href=\"https://www.kaggle.com/competitions/ucsd-winter-2025-dsc-148/leaderboard\" target=\"_blank\"> Leaderboard Link</a>"
+	  },
+	  {
+		"title": "Predicting Median Salary Across the United States",
+		"year": "2025",
+		"image": {
+		  "src": "/portfolio/images/predictsalary.png",
+		  "alt": "Distribution of Salaries"
+		},
+		"description": "As students are actively searching for their first job, one of the most sought-after questions is: How much will the salary be? Individuals seek higher education in chances to secure a job with a higher salary, and with the world becoming more technologically driven, certain jobs tend to be on the higher salary spectrum. In this report, we delve deep into LinkedIn job postings to analyze job listing characteristics (location, industry, experience, work type, and company) that can most accurately predict the median annual salary.<a href=\"https://docs.google.com/document/d/1zL8juntzyIT0aNQo9pd8I1kMIus0G-R6Ki4x7z06X7Q/edit?usp=sharing\" target=\"_blank\"> Report Link</a>"
 	  },
 	  {
 		"title": "Analyzing Grocery Stores and their Nutritional Value",
@@ -52,24 +70,6 @@
 		  "alt": "Image of Interactive Bike Map"
 		},
 		"description": "This website provides an interactive map visualization of bike traffic in the Boston area, focused on different times of the day.<a href=\"https://haechristine.github.io/wheelie_good_time/\" target=\"_blank\"> Website</a>"
-	  },
-	  {
-		"title": "Glycograph",
-		"year": "2025",
-		"image": {
-		  "src": "/portfolio/images/glycograph.png",
-		  "alt": "Image of Glycograph"
-		},
-		"description": "This project explores how daily glucose trends differ among individuals with normal, prediabetic, and diabetic glucose levels. Through interactive visualizations and physiological data, you'll learn how blood sugar behaves throughout the day, what factors influence it, and how it relates to overall health. <a href=\"https://d4zhu.github.io/Glycograph/\" target=\"_blank\"> Project Link</a>"
-	  },
-	  {
-		"title": "To Be Completed...",
-		"year": "2023",
-		"image": {
-		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
-		  "alt": ""
-		},
-		"description": "To Be Completed..."
 	  },
 	  {
 		"title": "To Be Completed...",
