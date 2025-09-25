@@ -33,7 +33,7 @@
 		  "src": "/portfolio/images/airbnb_logo.png",
 		  "alt": "Airbnb Logo"
 		},
-		"description": "Placed in the top 20 out of 100+ participants in an Airbnb price prediction challenge by engineering features, handling missing data, and tuning models to minimize RMSE. <a href=\"https://www.kaggle.com/competitions/ucsd-winter-2025-dsc-148/leaderboard\" target=\"_blank\"> Leaderboard Link</a>"
+		"description": "Placed in the top 20 out of 100+ participants in an Airbnb price prediction challenge by engineering machine learning algorithms, feature engineering, handling missing data, and tuning models to minimize RMSE. <a href=\"https://www.kaggle.com/competitions/ucsd-winter-2025-dsc-148/leaderboard\" target=\"_blank\"> Leaderboard Link</a>"
 	  },
 	  {
 		"title": "Predicting Median Salary Across the United States",
