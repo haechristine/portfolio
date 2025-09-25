@@ -12,7 +12,7 @@
 		"title": "Hunter Industries Specification Market Analysis",
 		"year": "2025",
 		"image": {
-		  "src": "/portfolio/images/hunter.png",
+		  "src": "/portfolio/images/hunter_logo.png",
 		  "alt": "Hunter Industries Logo"
 		},
 		"description": "In order to better understand Hunter's market share, we needed to find out more about its specification rate. Since we lacked crucial information about the overall size of the specification market, my role was to develop a method for more accurately estimating the monetary value of Hunter's specification rate within the irrigation sector. Specifically, I focused on projects from 2023 valued at $1 million or more as this was the first full year of \"normal\" data post-pandemic.<a href=\"https://github.com/haechristine/hunterspecrates\" target=\"_blank\"> Report Link</a>"
@@ -21,7 +21,7 @@
 		"title": "Glycograph",
 		"year": "2025",
 		"image": {
-		  "src": "/portfolio/images/glycograph.png",
+		  "src": "/portfolio/images/glyco_logo.png",
 		  "alt": "Image of Glycograph"
 		},
 		"description": "This project explores how daily glucose trends differ among individuals with normal, prediabetic, and diabetic glucose levels. Through interactive visualizations and physiological data, you'll learn how blood sugar behaves throughout the day, what factors influence it, and how it relates to overall health. <a href=\"https://d4zhu.github.io/Glycograph/\" target=\"_blank\"> Project Link</a>"
@@ -30,7 +30,7 @@
 		"title": "Airbnb Data Mining Challenge",
 		"year": "2025",
 		"image": {
-		  "src": "/portfolio/images/airbnb_logo.jpg",
+		  "src": "/portfolio/images/airbnb_logo.png",
 		  "alt": "Airbnb Logo"
 		},
 		"description": "Placed in the top 20 out of 100+ participants in an Airbnb price prediction challenge by engineering features, handling missing data, and tuning models to minimize RMSE. <a href=\"https://www.kaggle.com/competitions/ucsd-winter-2025-dsc-148/leaderboard\" target=\"_blank\"> Leaderboard Link</a>"
