@@ -70,42 +70,6 @@
 		  "alt": "Image of Interactive Bike Map"
 		},
 		"description": "This website provides an interactive map visualization of bike traffic in the Boston area, focused on different times of the day.<a href=\"https://haechristine.github.io/wheelie_good_time/\" target=\"_blank\"> Website</a>"
-	  },
-	  {
-		"title": "To Be Completed...",
-		"year": "2023",
-		"image": {
-		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
-		  "alt": ""
-		},
-		"description": "To Be Completed..."
-	  },
-	  {
-		"title": "To Be Completed...",
-		"year": "2023",
-		"image": {
-		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
-		  "alt": ""
-		},
-		"description": "To Be Completed..."
-	  },
-	  {
-		"title": "To Be Completed...",
-		"year": "2023",
-		"image": {
-		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
-		  "alt": ""
-		},
-		"description": "To Be Completed..."
-	  },
-	  {
-		"title": "To Be Completed...",
-		"year": "2023",
-		"image": {
-		  "src": "https://vis-society.github.io/labs/2/images/empty.svg",
-		  "alt": ""
-		},
-		"description": "To Be Completed..."
 	  }
 ]
   
