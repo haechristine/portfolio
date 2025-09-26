@@ -48,7 +48,7 @@
 		"title": "Analyzing Grocery Stores and their Nutritional Value",
 		"year": "2025",
 		"image": {
-		  "src": "/portfolio/images/mealprep.png",
+		  "src": "/portfolio/images/store.png",
 		  "alt": "Visualization of Nutritional Value (Target vs. Walmart)"
 		},
 		"description": "As a college student, eating regular, nutritious meals can be difficult due to our busy schedules. The majority of us transition from getting meals from our parents to being on a meal plan, then to planning our meals. For days when I want a quick, easy meal, I want to know which store would provide the best nutritious meal. As UC San Diego students, we have both a Target and a Whole Foods that are readily accessible to us due to proximity, therefore, I decided to focus on those two stores to help determine where students should purchase their next prepared meal."
@@ -66,7 +66,7 @@
 		"title": "Bikewatching",
 		"year": "2025",
 		"image": {
-		  "src": "/portfolio/images/bike.png",
+		  "src": "/portfolio/images/bluebike.png",
 		  "alt": "Image of Interactive Bike Map"
 		},
 		"description": "This website provides an interactive map visualization of bike traffic in the Boston area, focused on different times of the day.<a href=\"https://haechristine.github.io/wheelie_good_time/\" target=\"_blank\"> Website</a>"
